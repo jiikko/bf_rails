@@ -61,11 +61,15 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
+    dotenv (0.7.0)
     erubi (1.7.1)
     et-orbi (1.1.0)
       tzinfo
     execjs (2.7.0)
     ffi (1.9.23)
+    foreman (0.64.0)
+      dotenv (~> 0.7.0)
+      thor (>= 0.13.6)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (0.9.5)
@@ -194,6 +198,7 @@ DEPENDENCIES
   bf!
   byebug
   coffee-rails (~> 4.2)
+  foreman
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.3.18, < 0.5)
