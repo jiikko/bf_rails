@@ -15,6 +15,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'resque'
 gem 'resque-scheduler'
+gem 'bf', github: 'jiikko/bf', path: '/Users/koji/src/bf_tools'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -1,3 +1,14 @@
+GIT
+  remote: https://github.com/jiikko/bf.git
+  revision: 66a3de867d759c3d740ba4aa470f46e4c91e1959
+  specs:
+
+PATH
+  remote: /Users/koji/src/bf_tools
+  specs:
+    bf (0.1.0)
+      activerecord (>= 5.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -180,6 +191,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bf!
   byebug
   coffee-rails (~> 4.2)
   jbuilder (~> 2.5)
