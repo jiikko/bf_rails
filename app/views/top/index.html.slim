@@ -1,4 +1,5 @@
-h1 top
+- button_name = BF::Setting.enable_fetch? ? '停止する' : '開始する'
+= link_to button_name, toggle_fetch_path, method: :put
 
 div#price_table
   = render 'prices/table', price_table: BF::Trade.price_table
