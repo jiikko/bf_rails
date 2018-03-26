@@ -18,6 +18,7 @@ gem 'resque-scheduler'
 gem 'bf', github: 'jiikko/bf', path: '/Users/koji/src/bf_tools'
 gem 'foreman'
 gem 'slim-rails'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

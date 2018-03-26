@@ -1,1 +1,11 @@
 h1 top
+
+div#price_table
+  = render 'prices/table', price_table: BF::Trade.price_table
+
+javascript:
+  $(function() {
+    setInterval(function(){
+      $.get('/prices.js');
+    }, 1000);
+  });

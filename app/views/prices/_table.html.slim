@@ -1,0 +1,14 @@
+table border=1
+  thead
+    tr
+      th min range
+      th min
+      th max
+      th diff
+  tbody
+    - price_table.each do |range, (min, max)|
+      tr
+        td = range
+        td = min
+        td = max
+        td = max - min
