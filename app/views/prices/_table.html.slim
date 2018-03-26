@@ -12,4 +12,4 @@ table border=1
         td = min
         td = max
         td = max - min
-p = BF::Trade.price_directions.join(' ')
+p = BF::Trade.price_directions(@price_table).join(' ')
