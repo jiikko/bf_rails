@@ -1,7 +1,8 @@
+p
 table border=1
   thead
     tr
-      th min range
+      th minute range
       th min
       th max
       th diff
@@ -12,4 +13,36 @@ table border=1
         td = min
         td = max
         td = max - min
+p
+  | 最終取引価格:
+  = @last_trade.price
+p
+table border=1
+  thead
+    tr
+      th minute range
+      th colspan=2 最終取引との差額
+      th width='100px'
+  tbody
+    - price_table.each do |range, (min, max)|
+      tr
+        - min_diff = @last_trade.price - min
+        - max_diff = max - @last_trade.price
+        td = range
+        td = min_diff
+        td = max_diff
+        td
+          div style='background-color:red; height:10px; width:#{calc_rate(min_diff, max_diff)}px'
+
+
 p = BF::Trade.price_directions(@price_table).join(' ')
+p
+  | 最終取得日時:
+  = @last_trade.created_at.localtime.strftime("%Y年%m月%d日 %H時%M分%S秒")
+p
+  - status = BF::Monitor.new.current_status
+  | BF負荷:
+  = status['health']
+  br
+  | BFステータス:
+  = status['state']
