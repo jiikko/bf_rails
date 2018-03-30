@@ -1,10 +1,7 @@
 GIT
   remote: https://github.com/jiikko/bf.git
-  revision: 66a3de867d759c3d740ba4aa470f46e4c91e1959
-  specs:
-
-PATH
-  remote: /Users/koji/src/bf_tools
+  revision: 2c260c2823f3b109bad3e278121f8cb0a7117a74
+  branch: master
   specs:
     bf (0.1.0)
       activerecord (>= 5.0)

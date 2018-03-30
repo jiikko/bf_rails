@@ -15,7 +15,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'resque'
 gem 'resque-scheduler'
-gem 'bf', github: 'jiikko/bf', path: '/Users/koji/src/bf_tools'
+gem 'bf', github: 'jiikko/bf', branch: :master
 gem 'foreman'
 gem 'slim-rails'
 gem 'jquery-rails'
