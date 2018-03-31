@@ -1,5 +1,12 @@
 module ApplicationHelper
   def calc_rate(min_diff, max_diff)
+    if (min_diff.nil? || max_diff.nil?)
+      return 0
+    end
+    if min_diff.zero? || max_diff.zero?
+      return 0
+    end
+
     if min_diff < 0
       min_diff = 0
     end
