@@ -10,8 +10,8 @@ table border=1
     - price_table.each do |range, (min, max)|
       tr
         td = range
-        td = min
-        td = max
+        td data-name="min_#{range}_price" = min
+        td data-name="max_#{range}_price" = max
         td = max - min
 p
   | 最終取引価格:
