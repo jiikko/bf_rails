@@ -1,10 +1,11 @@
 GIT
   remote: https://github.com/jiikko/bf.git
-  revision: 6cdde5a814e90a47a4bca2f27a4f51e54be97322
+  revision: 217f963d03e65b76d76ac619fb53ded4ab195046
   branch: master
   specs:
     bf (0.1.0)
       activerecord (>= 5.0)
+      resque (< 4)
 
 GEM
   remote: https://rubygems.org/
