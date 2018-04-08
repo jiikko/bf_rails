@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180326111054) do
+ActiveRecord::Schema.define(version: 20180408084857) do
+
+  create_table "my_trade_ships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "buy_trade_id", null: false
+    t.integer "sell_trade_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sell_trade_id", "buy_trade_id"], name: "index_my_trade_ships_on_sell_trade_id_and_buy_trade_id", unique: true
+  end
+
+  create_table "my_trades", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "kind", null: false
+    t.integer "status", null: false
+    t.integer "price", null: false
+    t.float "size", limit: 24, null: false
+    t.string "order_id"
+    t.text "error_trace"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean "enabled_fetch", default: true, null: false

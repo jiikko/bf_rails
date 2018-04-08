@@ -32,3 +32,6 @@ bundle exec foreman start
 
 ## TODO
 * foremanが停止したらjsが無限にポーリングするのでjsで例外処理を行ってその旨を表示する
+* foreman 管理下のプロセスが終了したらresqueも終了して売りを発注しないまま終了する、というのがあるので起動コマンドは別で作成する
+  * foremanで resqueを起動しない
+* resqueを停止したら実行中のジョブが消滅するのでキューに積み直すようにする

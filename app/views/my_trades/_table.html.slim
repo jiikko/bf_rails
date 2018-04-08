@@ -1,0 +1,21 @@
+table border=1
+  tr
+    th
+    th colspan=2 買い
+    th colspan=2 売り
+    th
+  tr
+    th id
+    th ステータス
+    th 金額
+    th ステータス
+    th 金額
+    th 作成日
+  - my_trade_ships.each do |my_trade_ship|
+    tr
+      th = my_trade_ship.id
+      th = my_trade_ship.buy_trade.status
+      th = my_trade_ship.buy_trade.price
+      th = my_trade_ship.sell_trade.status
+      th = my_trade_ship.sell_trade.price
+      th = distance_of_time_in_words_to_now(my_trade_ship.updated_at)

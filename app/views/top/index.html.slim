@@ -1,29 +1,37 @@
 - button_name = BF::Setting.enable_fetch? ? '停止する' : '開始する'
 = link_to button_name, toggle_fetch_path, method: :put
 
-table border=1
-  tr data-role='buy'
+
+p style='height:30px'
+  span data-role='buy_1'
+  br
+  span data-role='buy_5'
 
 div#trade_table
 div#price_table
-
-p console
-div#console
+div#worker_statuses
+div#my_trade_table
 
 javascript:
   $(function() {
     setInterval(function(){ $.get('/prices.js'); }, 1000);
-    setInterval(function(){ build_trade_link() }, 3000);
+    setInterval(function(){ $.get('/my_trades.js'); }, 4000);
+    setInterval(function(){ $.get('/worker_statuses.js'); }, 4000);
+    setInterval(function(){ build_trade_link() }, 5000);
   });
 
   function build_trade_link() {
-    const min_price = parseInt($('[data-name=min_10_price]').text());
-    const max_price = parseInt($('[data-name=max_10_price]').text());
-    const diff = max_price - min_price;
-    const step = diff / 5;
-    $('[data-role="buy"]').children().remove()
-    for(i=1; i <= 5; i++) {
-      var price = min_price + (step * i);
-      $("[data-role='buy']").append(`<td>${price}</td>`);
-    }
+    $('[data-role="buy_1"]').toggle('fast')
+    var  min_price = parseInt($('[data-name=min_1_price]').text());
+    $('[data-role="buy_1"]').children().remove()
+    var a_tag = `<a data-method='post' data-remote=true data-method="post" href='/my_trades?price=${min_price}'>${min_price}</a>`
+    $("[data-role='buy_1']").append($(a_tag));
+    $('[data-role="buy_1"]').toggle('fast')
+
+    $('[data-role="buy_5"]').toggle('slow')
+    var min_price = parseInt($('[data-name=min_5_price]').text());
+    $('[data-role="buy_5"]').children().remove()
+    var a_tag = `<a data-method='post' data-remote=true data-method="post" href='/my_trades?price=${min_price}'>${min_price}</a>`
+    $("[data-role='buy_5']").append($(a_tag));
+    $('[data-role="buy_5"]').toggle('fast')
   }
