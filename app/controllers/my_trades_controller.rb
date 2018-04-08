@@ -19,8 +19,9 @@ class MyTradesController < ApplicationController
 
   def set_my_trade_ships
     cond = { my_trades: { status: BF::MyTrade.statuses[:requested]} }
-    @my_trade_ships = BF::MyTradeShip.joins(:buy_trade).order(id: :desc).limit(7).where(cond).to_a
-    @my_trade_ships.concat(BF::MyTradeShip.joins(:buy_trade).where.not(cond).order(id: :desc).limit(5))
+    base_query = BF::MyTradeShip.joins(:buy_trade).includes(:buy_trade, :sell_trade).order(id: :desc).limit(7)
+    @my_trade_ships = base_query.where(cond).to_a
+    @my_trade_ships.concat(base_query.where.not(cond))
     @my_trade_ships.sort_by! { |x| - x.id }
   end
 end

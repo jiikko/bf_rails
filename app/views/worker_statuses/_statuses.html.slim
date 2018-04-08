@@ -4,4 +4,4 @@
   | workerの稼働率: workerがいません。起動中かもしれません。
 - else
   p
-    | workerの稼働率: #{(working_count / worker_count.to_f) * 100.to_i} % (#{working_count}/#{worker_count})
+    | workerの稼働率: #{((working_count / worker_count.to_f) * 100).to_i} % (#{working_count}/#{worker_count})

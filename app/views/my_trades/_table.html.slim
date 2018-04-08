@@ -18,4 +18,4 @@ table border=1
       th = my_trade_ship.buy_trade.price
       th = my_trade_ship.sell_trade.status
       th = my_trade_ship.sell_trade.price
-      th = distance_of_time_in_words_to_now(my_trade_ship.updated_at)
+      th = distance_of_time_in_words_to_now(my_trade_ship.updated_at).truncate(13)
