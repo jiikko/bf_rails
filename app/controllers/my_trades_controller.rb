@@ -3,8 +3,7 @@ class MyTradesController < ApplicationController
 
   def index
     respond_to do |format|
-      format.js do
-      end
+      format.js
     end
   end
 
@@ -19,9 +18,9 @@ class MyTradesController < ApplicationController
 
   def set_my_trade_ships
     cond = { my_trades: { status: BF::MyTrade.statuses[:requested]} }
-    base_query = BF::MyTradeShip.joins(:buy_trade).includes(:buy_trade, :sell_trade).order(id: :desc).limit(7)
+    base_query = BF::MyTradeShip.joins(:buy_trade).includes(:buy_trade, :sell_trade).order(id: :desc).limit(5)
     @my_trade_ships = base_query.where(cond).to_a
-    @my_trade_ships.concat(base_query.where.not(cond))
+    @my_trade_ships.concat(base_query.where.not(cond).limit(5))
     @my_trade_ships.sort_by! { |x| - x.id }
   end
 end
