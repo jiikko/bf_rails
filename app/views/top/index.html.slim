@@ -14,6 +14,9 @@ div#my_trade_table
 
 javascript:
   $(function() {
+    $.get('/prices.js');
+    $.get('/my_trades.js');
+    $.get('/worker_statuses.js');
     setInterval(function(){ $.get('/prices.js'); }, 1000);
     setInterval(function(){ $.get('/my_trades.js'); }, 4000);
     setInterval(function(){ $.get('/worker_statuses.js'); }, 2000);
