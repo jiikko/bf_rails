@@ -14,8 +14,16 @@ table border=1
   - my_trade_ships.each do |my_trade_ship|
     tr
       th = my_trade_ship.id
-      th = my_trade_ship.buy_trade.status
+      th
+        - if my_trade_ship.buy_trade.requested?
+          = link_to my_trade_ship.buy_trade.status, cancel_my_trade_path(my_trade_ship.buy_trade), data: { confirm: 'キャンセルしますが本当にいいですか？', remote: true }, method: :put
+        - else
+          = my_trade_ship.buy_trade.status.truncate(15)
       th = my_trade_ship.buy_trade.price
-      th = my_trade_ship.sell_trade.status
+      th
+        - if my_trade_ship.sell_trade.waiting_to_sell?
+          = link_to my_trade_ship.sell_trade.status, cancel_my_trade_path(my_trade_ship.sell_trade), data: { confirm: 'キャンセルしますが本当にいいですか？', remote: true }, method: :put
+        - else
+          = my_trade_ship.sell_trade.status.truncate(15)
       th = my_trade_ship.sell_trade.price
       th = distance_of_time_in_words_to_now(my_trade_ship.updated_at).truncate(13)

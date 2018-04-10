@@ -14,6 +14,14 @@ class MyTradesController < ApplicationController
     end
   end
 
+  def cancel
+    my_traded = BF::MyTrade.find(params[:id])
+    my_traded.canceled!
+    respond_to do |format|
+      format.js { render :index }
+    end
+  end
+
   private
 
   def set_my_trade_ships
