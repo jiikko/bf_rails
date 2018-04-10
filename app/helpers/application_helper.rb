@@ -22,4 +22,19 @@ module ApplicationHelper
     end
     (rate * 100).to_i
   end
+
+  def health_meter(status)
+    max = 4
+    result = []
+    halth_number = BF::Monitor.state_const_with_number[status['health']] - 1
+    busy_number = max - halth_number
+    halth_number.times do
+      result << content_tag(:div, nil, style: 'float: left; width: 10px; height: 20px; margin-right: 5px; background-color: green;')
+    end
+    busy_number.times do
+      result << content_tag(:div, nil, style: 'float: left; width: 10px; height: 20px; margin-right: 5px; background-color: red;')
+    end
+    result << content_tag(:div, nil, style: 'clear: both')
+    result.join.html_safe
+  end
 end

@@ -41,8 +41,7 @@ p
   = @last_trade.created_at.localtime.strftime("%Y年%m月%d日 %H時%M分%S秒")
 p
   - status = BF::Monitor.new.current_status_from_datastore
-  | BF負荷:
-  = status['health']
+  = health_meter(status)
+  | BF負荷: #{status['health']}
   br
-  | BFステータス:
-  = status['state']
+  | BFステータス: #{status['state']}
