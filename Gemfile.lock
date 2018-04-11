@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/jiikko/bf.git
-  revision: f6bbb44184c8a82fa9932029946f2158d626eb49
+  revision: ac81612310328dbfb16fc38dcfdfaafc4e693a61
   branch: master
   specs:
     bf (0.1.0)
