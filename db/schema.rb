@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180408084857) do
+ActiveRecord::Schema.define(version: 20180411142224) do
 
   create_table "my_trade_ships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "buy_trade_id", null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20180408084857) do
     t.integer "price", null: false
     t.float "size", limit: 24, null: false
     t.string "order_id"
+    t.string "order_acceptance_id"
     t.text "error_trace"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

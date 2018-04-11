@@ -7,6 +7,7 @@ class CreateMyTrade < ActiveRecord::Migration[5.1]
       t.integer :price, null: false
       t.float :size, null: false
       t.string :order_id
+      t.string :order_acceptance_id
       t.text :error_trace
 
       t.timestamps null: false
