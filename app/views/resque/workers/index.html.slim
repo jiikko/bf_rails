@@ -1,13 +1,2 @@
 h1 Workers
-table border=1
-  tr
-    th job name
-    th pid
-  tr
-    - @workers.each do |worker|
-      tr
-        td
-          - worker.job.slice('run_at', 'payload').each do |key, value|
-            = value.respond_to?(:values) ? value.values.flatten : value.inspect
-            br
-        td = worker.pid
+= render 'table', workers: @workers

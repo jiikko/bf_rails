@@ -10,7 +10,14 @@ p style='height:30px'
 
 div#trade_table
 div#price_table
-div#worker_statuses
+table
+  tr
+    td
+      div#worker_statuses
+    td
+      #worker_button = link_to 'show jobs', '#'
+      #workers
+
 div#my_trade_table
 
 javascript:
@@ -23,6 +30,15 @@ javascript:
     setInterval(function(){ $.get('/worker_statuses.js'); }, 2000);
     setInterval(function(){ build_trade_link() }, 5000);
   });
+
+  $(document).on('click', '#worker_button', function() {
+    if($('#workers table').size() >= 1) {
+      $('#workers').children().remove();
+    } else {
+      $.get('/resque/workers.js');
+    }
+    return false;
+  })
 
   function build_trade_link() {
     $('[data-role="buy_1"]').toggle('fast')

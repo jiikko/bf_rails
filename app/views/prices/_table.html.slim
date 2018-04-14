@@ -42,6 +42,6 @@ p
 p
   - status = BF::Monitor.new.current_status_from_datastore
   = health_meter(status)
-  | BF負荷: #{status['health']}
+  | BF負荷: #{status['health'].truncate(20)}
   br
   | BFステータス: #{status['state']}
