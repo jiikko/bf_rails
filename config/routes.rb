@@ -6,7 +6,9 @@ Rails.application.routes.draw do
       put :cancel
     end
   end
-  resources :settings
   resources :worker_statuses, only: %i(index)
   put 'toggle_fetch' => 'settings#toggle_fetch'
+  namespace :resque do
+    resources :workers, only: %i(index destroy)
+  end
 end
