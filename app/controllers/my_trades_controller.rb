@@ -32,5 +32,6 @@ class MyTradesController < ApplicationController
     sell_query = BF::MyTradeShip.joins(:sell_trade).preload(:buy_trade, :sell_trade).order(id: :desc).limit(10)
     @my_trade_ships.concat(sell_query.where(my_trades: { status: BF::MyTrade.statuses[:selling], created_at: ((2.days.ago)..Time.now)}))
     @my_trade_ships.sort_by! { |x| - x.id }
+    @my_trade_ships.uniq!
   end
 end
