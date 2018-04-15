@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   namespace :resque do
     resources :workers, only: %i(index destroy)
   end
+  post 'run_one_scalping' => 'scalpings#create', as: :run_one_scalping
 end
