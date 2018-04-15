@@ -1,3 +1,4 @@
+= link_to 'すべてのrequestedステータスの注文を取り消す', '#', data:{ all_cancel: true }
 table border=1
   tr
     th
@@ -42,6 +43,11 @@ javascript:
   $(function() {
     $(document).on('click', '[data-option-column=show]', function() {
       $('[data-option-column=profit]').toggle();
+      return false;
+    })
+
+    $(document).on('click', '[data-all-cancel]', function() {
+      // TODO
       return false;
     })
   })
