@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180411142224) do
+ActiveRecord::Schema.define(version: 20180519052508) do
 
   create_table "my_trade_ships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "buy_trade_id", null: false
@@ -32,8 +32,18 @@ ActiveRecord::Schema.define(version: 20180411142224) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "scalping_tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "trade_ship_id"
+    t.datetime "buy_succeed_at"
+    t.datetime "sell_succeed_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trade_ship_id"], name: "index_scalping_tasks_on_trade_ship_id"
+  end
+
   create_table "settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean "enabled_fetch", default: true, null: false
+    t.boolean "enabled_daemon_sclping_worker", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/jiikko/bf.git
-  revision: 6a0448954f1bce1a50f6dd3f54a8dfc5c3a77989
+  revision: 6f6d0e2f9e3a222dd713b069c59bc3f446c114c1
   branch: master
   specs:
     bf (0.1.0)
@@ -101,7 +101,7 @@ GEM
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
     puma (3.11.3)
-    rack (2.0.4)
+    rack (2.0.5)
     rack-protection (2.0.1)
       rack
     rack-test (1.0.0)
