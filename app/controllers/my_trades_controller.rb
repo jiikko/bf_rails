@@ -25,12 +25,8 @@ class MyTradesController < ApplicationController
   private
 
   def set_my_trade_ships
-    cond = { my_trades: { status: BF::MyTrade.statuses[:requested]} }
-    base_query = BF::MyTradeShip.joins(:buy_trade).includes(:buy_trade, :sell_trade).order(id: :desc).limit(5)
-    @my_trade_ships = base_query.where(cond).to_a
-    @my_trade_ships.concat(base_query.where.not(cond).limit(5))
-    sell_query = BF::MyTradeShip.joins(:sell_trade).preload(:buy_trade, :sell_trade).order(id: :desc).limit(10)
-    @my_trade_ships.concat(sell_query.where(my_trades: { status: BF::MyTrade.statuses[:selling], created_at: ((2.days.ago)..Time.now)}))
+    @my_trade_ships = BF::MyTradeShip.running.includes(:sell_trade, buy_trade: :sell_trade).to_a
+    @my_trade_ships.concat(BF::MyTradeShip.limit(8).order(id: :desc).includes(:sell_trade, buy_trade: :sell_trade))
     @my_trade_ships.sort_by! { |x| - x.id }
     @my_trade_ships.uniq!
   end
