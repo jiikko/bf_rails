@@ -12,4 +12,5 @@ Rails.application.routes.draw do
     resources :workers, only: %i(index destroy)
   end
   post 'run_one_scalping' => 'scalpings#create', as: :run_one_scalping
+  resources :scalping_tasks, only: %i(index)
 end

@@ -1,0 +1,7 @@
+.bf-tabs
+  .tab class=(:active if current_page?(root_path))
+    = link_to :trade, root_path
+  .tab class=(:active if current_page?(resque_workers_path))
+    = link_to :workers, resque_workers_path
+  .tab class=(:active if current_page?(scalping_tasks_path))
+    = link_to :scalping_tasks, scalping_tasks_path

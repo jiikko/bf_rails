@@ -1,7 +1,7 @@
-- button_name = BF::Setting.enable_fetch? ? '最終取引価格の取得を停止する' : '最終取引価格の取得を開始する'
-= link_to button_name, toggle_fetch_path, method: :put
-|,
-= link_to :workers, resque_workers_path
+/ - button_name = BF::Setting.enable_fetch? ? '最終取引価格の取得を停止する' : '最終取引価格の取得を開始する'
+/ = link_to button_name, toggle_fetch_path, method: :put
+
+= render 'shared/header'
 
 p style='height:30px'
   span data-role='buy_1'
