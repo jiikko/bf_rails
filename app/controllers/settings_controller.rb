@@ -1,10 +1,20 @@
 class SettingsController < ApplicationController
-  def toggle_fetch
-    if BF::Setting.enable_fetch?
-      BF::Setting.disable_fetch!
+  def edit
+    @setting = BF::Setting.record
+  end
+
+  def update
+    @setting = BF::Setting.record
+    if @setting.update(setting_params)
+      redirect_to edit_setting_path, notice: '更新しました'
     else
-      BF::Setting.enable_fetch!
+      render :edit
     end
-    redirect_to root_path
+  end
+
+  private
+
+  def setting_params
+    params.require(:bf_setting).permit!
   end
 end

@@ -5,3 +5,5 @@
     = link_to :workers, resque_workers_path
   .tab class=(:active if current_page?(scalping_tasks_path))
     = link_to :scalping_tasks, scalping_tasks_path
+  .tab class=(:active if current_page?(edit_setting_path))
+    = link_to :setting, edit_setting_path

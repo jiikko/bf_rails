@@ -1,0 +1,10 @@
+h1 Setting
+= form_for @setting, url: setting_path do |f|
+  p
+    = f.check_box :enabled_fetch
+    = f.label :enabled_fetch
+  p
+    = f.check_box :enabled_daemon_sclping_worker
+    = f.label :enabled_daemon_sclping_worker
+  p
+    = f.submit

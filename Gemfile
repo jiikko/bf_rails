@@ -18,6 +18,7 @@ gem 'bf', github: 'jiikko/bf', branch: :master
 gem 'foreman'
 gem 'slim-rails'
 gem 'jquery-rails'
+gem 'pry'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
