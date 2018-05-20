@@ -16,7 +16,7 @@ table border=1
     th 作成日
     th data-option-column='profit'
   - my_trade_ships.each do |my_trade_ship|
-    tr
+    tr class=(:closed if !my_trade_ship.running?)
       td = my_trade_ship.id
       td
         - if my_trade_ship.buy_trade.requested?
