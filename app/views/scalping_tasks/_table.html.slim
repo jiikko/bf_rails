@@ -1,0 +1,10 @@
+table#scalping_task_table border=1
+  tr
+    th id
+    th status
+    th
+  - list.each do |task|
+    tr class=(:closed if !task.running?)
+      td = task.id
+      td = BF::ScalpingTask::STATUS_TABLE[task.status]
+      td = distance_of_time_in_words_to_now(task.created_at).truncate(13)
