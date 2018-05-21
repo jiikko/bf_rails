@@ -7,6 +7,9 @@ Rails.application.routes.draw do
     end
   end
   resources :worker_statuses, only: %i(index)
+  namespace :api do
+    resource :disparities, only: :show
+  end
   namespace :resque do
     resources :workers, only: %i(index destroy)
   end

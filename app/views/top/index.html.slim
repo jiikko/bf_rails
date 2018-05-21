@@ -5,6 +5,7 @@ p style='height:30px'
 
 div#trade_table
 div#price_table
+div#disparity
 table
   tr
     td
@@ -12,7 +13,6 @@ table
     td
       #worker_button = link_to 'show jobs', '#'
       #workers
-
 div#my_trade_table
 
 javascript:
@@ -20,9 +20,11 @@ javascript:
     $.get('/prices.js');
     $.get('/my_trades.js');
     $.get('/worker_statuses.js');
+    $.get('/api/disparities.js');
     setInterval(function(){ $.get('/prices.js'); }, 1000);
     setInterval(function(){ $.get('/my_trades.js'); }, 4000);
     setInterval(function(){ $.get('/worker_statuses.js'); }, 2000);
+    setInterval(function(){ $.get('/api/disparities.js'); }, 2000);
     setInterval(function(){ build_trade_link() }, 5000);
   });
 
