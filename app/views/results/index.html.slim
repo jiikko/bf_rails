@@ -1,12 +1,28 @@
-h1 Sesult
-h2 Automation
+h1 Result
 table border=1
   tr
     th 日付
-    th 数
-    th 利益
-  - @tasks_table.each do |date, tasks|
+    th automation数
+    th automation利益
+    th manual数
+    th manual利益
+    th 合計数
+    th 合計利益
+  - @ships_table.each do |date, tasks|
+    - hash = tasks.group_by { |x| x.scalping_task.nil? ? :manual : :automation }
+    - total_automations_profit = hash[:automation].map(&:profit).reduce(&:+).to_i
+    - total_manual_profit = hash[:manual].map(&:profit).reduce(&:+).to_i
     tr
       td = date
-      td = tasks.count
-      td = tasks.map { |x| x&.trade_ship&.profit }.reject(&:nil?).reduce(&:+).to_i
+      td = hash[:automation].size
+      td
+        = total_automations_profit
+        | 円
+      td = hash[:manual].size
+      td
+        = total_manual_profit
+        | 円
+      td = tasks.size
+      td
+        = total_automations_profit + total_manual_profit
+        | 円
