@@ -13,7 +13,8 @@ table border=1
         td data-name="min_#{range}_price" = min
         td data-name="max_#{range}_price" = max
         td = max - min
-= link_to '自動発注', run_one_scalping_path, method: :post, remote: true
+div = link_to '自動発注', run_one_scalping_path, method: :post, remote: true
+div = link_to '繰り返し自動発注', run_endless_scalping_path, method: :post, remote: true
 p
   | 最終取引価格:
   = @last_trade.price
