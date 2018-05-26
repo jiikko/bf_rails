@@ -31,9 +31,7 @@ table border=1
           = my_trade_ship.sell_trade.status.truncate(15)
       td = my_trade_ship.sell_trade.price
       td = distance_of_time_in_words_to_now(my_trade_ship.updated_at).truncate(13)
-      - sell = my_trade_ship.sell_trade.size * my_trade_ship.sell_trade.price rescue 0
-      - buy  =  my_trade_ship.buy_trade.size * my_trade_ship.buy_trade.price rescue 0
-      td data-option-column='profit' =  (sell - buy)
+      td data-option-column='profit' = my_trade_ship.profit
 
 
 css:

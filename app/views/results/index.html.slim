@@ -9,4 +9,4 @@ table border=1
     tr
       td = date
       td = tasks.count
-      td = tasks.map { |x| x&.trade_ship&.buy_trade&.profit }.reject(&:nil?).reduce(&:+).to_i
+      td = tasks.map { |x| x&.trade_ship&.profit }.reject(&:nil?).reduce(&:+).to_i
