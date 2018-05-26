@@ -1,4 +1,4 @@
-class DaemonScalpingsController < ApplicationController
+class Api::DaemonScalpingsController < ApplicationController
   def create
     respond_to do |format|
       format.js do 

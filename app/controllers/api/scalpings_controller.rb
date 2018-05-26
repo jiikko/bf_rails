@@ -1,4 +1,4 @@
-class ScalpingsController < ApplicationController
+class Api::ScalpingsController < ApplicationController
   def create
     BF::ScalpingWorker.perform_async
     respond_to do |format|
