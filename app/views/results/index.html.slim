@@ -10,6 +10,8 @@ table border=1
     th 合計利益
   - @ships_table.each do |date, tasks|
     - hash = tasks.group_by { |x| x.scalping_task.nil? ? :manual : :automation }
+    - hash[:automation] ||= []
+    - hash[:manual] ||= []
     - total_automations_profit = hash[:automation].map(&:profit).reduce(&:+).to_i
     - total_manual_profit = hash[:manual].map(&:profit).reduce(&:+).to_i
     tr
