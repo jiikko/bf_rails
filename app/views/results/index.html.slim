@@ -4,6 +4,7 @@ table border=1
     th 日付
     th automation数
     th automation利益
+    th
     th manual数
     th manual利益
     th 合計数
@@ -20,6 +21,7 @@ table border=1
       td
         = total_automations_profit
         | 円
+      td
       td = hash[:manual].size
       td
         = total_manual_profit
