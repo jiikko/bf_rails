@@ -1,0 +1,4 @@
+BF::RemoveWaitingTradeWorker:
+  cron: "0 0 * * *"
+  class: "BF::RemoveWaitingTradeWorker"
+  queue: normal
