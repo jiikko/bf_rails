@@ -1,0 +1,12 @@
+h1 Sesult
+h2 Automation
+table border=1
+  tr
+    th 日付
+    th 数
+    th 利益
+  - @tasks_table.each do |date, tasks|
+    tr
+      td = date
+      td = tasks.count
+      td = tasks.map { |x| x&.trade_ship&.buy_trade&.profit }.reject(&:nil?).reduce(&:+).to_i

@@ -17,4 +17,5 @@ Rails.application.routes.draw do
   end
   resources :scalping_tasks, only: %i(index)
   resource :setting, only: %i(edit update)
+  resources :results, only: :index
 end
