@@ -4,6 +4,7 @@ table border=1
     th 日付
     th automation数
     th automation利益
+
     th
     th manual数
     th manual利益
@@ -11,18 +12,18 @@ table border=1
     th 合計利益
   - @ships_table.each do |date, tasks|
     - hash = tasks.group_by { |x| x.scalping_task.nil? ? :manual : :automation }
-    - hash[:automation] ||= []
-    - hash[:manual] ||= []
-    - total_automations_profit = hash[:automation].map(&:profit).reduce(&:+).to_i
-    - total_manual_profit = hash[:manual].map(&:profit).reduce(&:+).to_i
+    - automation_list = hash[:automation] ||= []
+    - manual_list = hash[:manual] ||= []
+    - total_automations_profit = automation_list.map(&:profit).reduce(&:+).to_i
+    - total_manual_profit = manual_list.map(&:profit).reduce(&:+).to_i
     tr
       td = date
-      td = hash[:automation].size
+      td = automation_list.size
       td
         = total_automations_profit
         | 円
       td
-      td = hash[:manual].size
+      td = manual_list.size
       td
         = total_manual_profit
         | 円
@@ -30,3 +31,25 @@ table border=1
       td
         = total_automations_profit + total_manual_profit
         | 円
+      manual
+
+h1 assessment automation
+table border=1
+  tr
+    th 日付
+    th 発注-買い約定(max)
+    th 発注-買い約定(min)
+    th 発注-買い約定(avg)
+    th 買い約定-売り約定までの時間(max)
+    th 買い約定-売り約定までの時間(min)
+    th 買い約定-売り約定までの時間(avg)
+  - @ships_table.each do |date, tasks|
+    tr
+      - list = tasks.find_all { |x| !!x.scalping_task }
+      td = date
+      td = distance_of_time_in_words(list.map(&:duration_from_buy_trade_to_succeed).max)
+      td = distance_of_time_in_words(list.map(&:duration_from_buy_trade_to_succeed).min)
+      td = distance_of_time_in_words(list.map(&:duration_from_buy_trade_to_succeed).sum / list.size)
+      td = distance_of_time_in_words(list.map(&:duration_from_sell_trade_to_succeed).max)
+      td = distance_of_time_in_words(list.map(&:duration_from_sell_trade_to_succeed).min)
+      td = distance_of_time_in_words(list.map(&:duration_from_sell_trade_to_succeed).sum / list.size)
