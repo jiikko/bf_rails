@@ -4,8 +4,8 @@ table border=1
     th
     th colspan=2 買い
     th colspan=2 売り
-    th
-      a href='#'  data-option-column='show' display
+    th colspan=2
+      a href='#' data-option-column='show' display profit
     th data-option-column='profit'
   tr
     th id
@@ -15,6 +15,7 @@ table border=1
     th 金額
     th 作成日
     th data-option-column='profit'
+    th ソース
   - my_trade_ships.each do |my_trade_ship|
     tr class=(:closed if !my_trade_ship.running?)
       td = my_trade_ship.id
@@ -32,7 +33,7 @@ table border=1
       td = my_trade_ship.sell_trade.price
       td = distance_of_time_in_words_to_now(my_trade_ship.updated_at).truncate(13)
       td data-option-column='profit' = my_trade_ship.profit
-
+      th = my_trade_ship.scalping_task ? :automation : :manual
 
 css:
   [data-option-column=profit] { display: none; }
