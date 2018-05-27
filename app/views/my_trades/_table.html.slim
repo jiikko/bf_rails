@@ -37,16 +37,3 @@ table border=1
 
 css:
   [data-option-column=profit] { display: none; }
-
-javascript:
-  $(function() {
-    $(document).on('click', '[data-option-column=show]', function() {
-      $('[data-option-column=profit]').toggle();
-      return false;
-    })
-
-    $(document).on('click', '[data-all-cancel]', function() {
-      // TODO
-      return false;
-    })
-  })

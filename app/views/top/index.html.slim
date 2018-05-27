@@ -56,3 +56,16 @@ javascript:
     $("[data-role='buy_5']").append($(a_tag));
     $('[data-role="buy_5"]').toggle('fast')
   }
+
+  $(function() {
+    $(document).on('click', '[data-option-column=show]', function() {
+      console.log('3')
+      $('[data-option-column=profit]').toggle();
+      return false;
+    })
+
+    $(document).on('click', '[data-all-cancel]', function() {
+      // TODO
+      return false;
+    })
+  })
