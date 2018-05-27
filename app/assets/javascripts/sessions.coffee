@@ -3,9 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $ ->
-  console.log('loaded ws')
-  App.cable.subscriptions.create "ChatChannel",
+  App.cable.subscriptions.create "MyTradeChannel",
     received: (data) ->
       console.log(data)
+      $("#my_trade_table").html(data.html)
     connected: ->
       console.log('connected')
