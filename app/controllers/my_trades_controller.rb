@@ -17,9 +17,7 @@ class MyTradesController < ApplicationController
   def cancel
     my_traded = BF::MyTrade.find(params[:id])
     my_traded.cancel_order!
-    respond_to do |format|
-      format.js { render :index }
-    end
+    head :no_content
   end
 
   private

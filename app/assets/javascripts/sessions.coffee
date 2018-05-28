@@ -6,6 +6,14 @@ $ ->
   App.cable.subscriptions.create "MyTradeChannel",
     received: (data) ->
       console.log(data)
-      $("#my_trade_table").html(data.html)
+      switch data.type
+        when "my_trades_table"
+          console.log('found my_trade_table')
+          $("#my_trade_table").html(data.html)
+        when "disparity_status"
+          $("#disparity").html(data.html)
+        else
+          console.log('not found type')
+
     connected: ->
       console.log('connected')
