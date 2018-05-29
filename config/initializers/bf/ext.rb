@@ -9,4 +9,10 @@ module BF
       )
     end
   end
+
+  class << self
+    def scalping_worker_class
+      Scalping::Basic
+    end
+  end
 end
