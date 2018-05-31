@@ -8,6 +8,10 @@ module BF
         html: ApplicationController.renderer.render(partial: 'my_trades/table', locals: { my_trade_ships: my_trade_ships }),
       )
     end
+
+    def order_size
+      0.02
+    end
   end
 
   class << self
