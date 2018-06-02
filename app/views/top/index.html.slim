@@ -26,6 +26,7 @@ javascript:
         success(function(data, textStatus, jqXHR) { $('body').css('background-color', 'white') }).
         fail(function(jqXHR, textStatus, errorThrown) { $('body').css('background-color', 'yellow') });
     }, 1000);
+    setInterval(function(){ $.get('/my_trades.js'); }, 10000);
     setInterval(function(){ $.get('/worker_statuses.js'); }, 2000);
     setInterval(function(){ $.get('/api/disparities.js'); }, 2000);
     setInterval(function(){ build_trade_link() }, 5000);
