@@ -46,10 +46,10 @@ table border=1
   - @ships_table.each do |date, tasks|
     tr
       - list = tasks.find_all { |x| !!x.scalping_task }
-      td = date
-      td = distance_of_time_in_words(list.map(&:duration_from_buy_trade_to_succeed).max)
-      td = distance_of_time_in_words(list.map(&:duration_from_buy_trade_to_succeed).min)
-      td = distance_of_time_in_words(list.map(&:duration_from_buy_trade_to_succeed).sum / list.size)
-      td = distance_of_time_in_words(list.map(&:duration_from_sell_trade_to_succeed).max)
-      td = distance_of_time_in_words(list.map(&:duration_from_sell_trade_to_succeed).min)
-      td = distance_of_time_in_words(list.map(&:duration_from_sell_trade_to_succeed).sum / list.size)
+      /td = date
+      /td = distance_of_time_in_words(list.map(&:duration_from_buy_trade_to_succeed).max)
+      /td = distance_of_time_in_words(list.map(&:duration_from_buy_trade_to_succeed).min)
+      /td = distance_of_time_in_words(list.map(&:duration_from_buy_trade_to_succeed).sum / list.size)
+      /td = distance_of_time_in_words(list.map(&:duration_from_sell_trade_to_succeed).max)
+      /td = distance_of_time_in_words(list.map(&:duration_from_sell_trade_to_succeed).min)
+      /td = distance_of_time_in_words(list.map(&:duration_from_sell_trade_to_succeed).sum / list.size)
