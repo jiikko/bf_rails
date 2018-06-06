@@ -1,3 +1,7 @@
-tr.closed, td.closed {
+tr.succeed, td.rucceed {
   background-color: silver;
+}
+
+tr.canceled {
+  background-color: yellow;
 }

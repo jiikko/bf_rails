@@ -37,4 +37,15 @@ module ApplicationHelper
     result << content_tag(:div, nil, style: 'clear: both')
     result.join.html_safe
   end
+
+  def css_class_of_trade_ship_status(my_trade_ship)
+    case
+    when my_trade_ship.running?
+      nil
+    when my_trade_ship.canceled?
+      :canceled
+    else
+      :succeed
+    end
+  end
 end

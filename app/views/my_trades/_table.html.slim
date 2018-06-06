@@ -17,7 +17,7 @@ table border=1
     th data-option-column='profit'
     th ソース
   - my_trade_ships.each do |my_trade_ship|
-    tr class=(:closed if !my_trade_ship.running?)
+    tr class=css_class_of_trade_ship_status(my_trade_ship)
       td = my_trade_ship.id
       td
         - if my_trade_ship.buy_trade.requested?
