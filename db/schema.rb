@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180519052508) do
+ActiveRecord::Schema.define(version: 20180609030601) do
 
   create_table "my_trade_ships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "buy_trade_id", null: false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20180519052508) do
     t.text "error_trace"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "params"
   end
 
   create_table "scalping_tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -46,6 +47,19 @@ ActiveRecord::Schema.define(version: 20180519052508) do
     t.boolean "enabled_daemon_sclping_worker", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "max_scalping_worker_count", default: 1, null: false
+    t.float "order_size", limit: 24, default: 0.01, null: false
+    t.integer "order_range", default: 400, null: false
+  end
+
+  create_table "summarized_my_trades", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "count", default: 0, null: false
+    t.integer "profit", default: 0, null: false
+    t.integer "kind", null: false
+    t.date "summarized_on", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["summarized_on", "kind"], name: "index_summarized_my_trades_on_summarized_on_and_kind", unique: true
   end
 
   create_table "trades", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|

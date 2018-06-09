@@ -1,7 +1,7 @@
 class ResultsController < ApplicationController
   def index
-    @ships_table = BF::MyTradeShip.succeed.includes(:scalping_task, :buy_trade, :sell_trade).
-      where("#{BF::MyTradeShip.table_name}.created_at > ?", 2.week.ago).order(created_at: :desc).
-      group_by { |x| x.created_at.localtime.strftime('%Y/%m/%d') }
+    @summarized_my_trades = BF::SummarizedMyTrade.where('summarized_on > ?', 2.week.ago).order(summarized_on: :desc)
+    @total_summarized_my_trade = @summarized_my_trades.group(:kind).
+      select('sum(count) sum_count, sum(profit) sum_profit, kind').group_by(&:kind)
   end
 end

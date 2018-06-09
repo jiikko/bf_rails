@@ -10,28 +10,42 @@ table border=1
     th manual利益
     th 合計数
     th 合計利益
-  - @ships_table.each do |date, tasks|
-    - hash = tasks.group_by { |x| x.scalping_task.nil? ? :manual : :automation }
-    - automation_list = hash[:automation] ||= []
-    - manual_list = hash[:manual] ||= []
-    - total_automations_profit = automation_list.map(&:profit).reduce(&:+).to_i
-    - total_manual_profit = manual_list.map(&:profit).reduce(&:+).to_i
+  - @summarized_my_trades.group_by(&:summarized_on).each do |date, summarized_my_trades|
+    - automation = summarized_my_trades.detect { |x| x.automation? } || BF::SummarizedMyTrade.new
+    - manual = summarized_my_trades.detect { |x| x.manual? } || BF::SummarizedMyTrade.new
     tr
       td = date
-      td = automation_list.size
+      td = automation.count
       td
-        = total_automations_profit
+        = automation.profit
         | 円
       td
-      td = manual_list.size
+      td = manual.count
       td
-        = total_manual_profit
+        = manual.profit
         | 円
-      td = tasks.size
+      td = automation.count + manual.count
       td
-        = total_automations_profit + total_manual_profit
+        = automation.profit + manual.profit
         | 円
       manual
+  tr
+    td 合計
+    - manual = @total_summarized_my_trade['manual']
+    - automation = @total_summarized_my_trade['automation']
+    td = manual.map(&:sum_count).sum
+    td
+      = manual.map(&:sum_profit).sum
+      | 円
+    td
+    td = automation.map(&:sum_count).sum
+    td
+      = automation.map(&:sum_profit).sum
+      | 円
+    td = manual.map(&:sum_count).sum + automation.map(&:sum_count).sum
+    td
+      = manual.map(&:sum_profit).sum + automation.map(&:sum_profit).sum
+      | 円
 
 h1 assessment automation
 table border=1
@@ -43,7 +57,7 @@ table border=1
     th 買い約定-売り約定までの時間(max)
     th 買い約定-売り約定までの時間(min)
     th 買い約定-売り約定までの時間(avg)
-  - @ships_table.each do |date, tasks|
+  - [].each do |date, tasks|
     tr
       - list = tasks.find_all { |x| !!x.scalping_task }
       /td = date
