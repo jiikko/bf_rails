@@ -1,8 +1,6 @@
 BF::RemoveWaitingTradeWorker:
   cron: "0 * * * *"
-  class: "BF::RemoveWaitingTradeWorker"
   queue: normal
 BF::SummarizedMyTradeWorker:
   cron: "0 * * * *"
-  class: "BF::SummarizedMyTradeWorker"
   queue: normal
