@@ -18,7 +18,11 @@ div = link_to '繰り返し自動発注', api_run_endless_scalping_path, method:
 
 p
   | 最終取引価格:
-  = @last_trade.price
+  = number_with_delimiter(@last_trade.price)
+
+javascript:
+  $('head title').html("#{number_with_delimiter(@last_trade.price)}");
+
 p
 table border=1
   thead
