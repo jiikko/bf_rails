@@ -1,0 +1,6 @@
+p 本家ページから注文をキャンセルした約定することのない注文のみを削除してください
+p
+= form_tag(destroy_all_admin_my_trades_path, method: :delete)
+  = render 'my_trades/table', my_trade_ships: @my_trade_ships, show_checkbox: true
+  p
+  = submit_tag '削除する'

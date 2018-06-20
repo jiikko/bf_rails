@@ -6,6 +6,11 @@ Rails.application.routes.draw do
       put :cancel
     end
   end
+  namespace :admin do
+    resources :my_trades, only: %i(index) do
+      delete :destroy_all, on: :collection
+    end
+  end
   resources :worker_statuses, only: %i(index)
   namespace :api do
     resource :disparities, only: :show
