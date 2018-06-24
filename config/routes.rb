@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'top#index'
+  resources :charts, only: :index
   resources :prices, only: %i(index)
   resources :my_trades, only: %i(index create) do
     member do
