@@ -7,6 +7,8 @@
     = link_to :scalping_tasks, scalping_tasks_path
   .tab class=(:active if current_page?(results_path))
     = link_to :result, results_path
+  .tab class=(:charts if current_page?(charts_path))
+    = link_to :charts, charts_path
   .tab class=(:active if current_page?(edit_setting_path))
     = link_to :setting, edit_setting_path
   .tab class=(:active if current_page?(admin_my_trades_path))
