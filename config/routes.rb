@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'top#index'
-  resources :charts, only: :index
+  resources :charts, only: :index do
+    get :day, on: :member
+  end
   resources :prices, only: %i(index)
   resources :my_trades, only: %i(index create) do
     member do

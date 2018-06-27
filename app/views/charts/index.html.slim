@@ -12,10 +12,28 @@ table
     td style='vertical-align: bottom'
       = @min_price
 javascript:
-  $(function(){
+  sample_draw_chart = ()=>{
     var canvas = document.getElementById('chart')
     ctx = canvas.getContext('2d')
     ctx.lineTo(10, 50)
     ctx.lineTo(20, 5)
     ctx.stroke()
+  }
+  get_day = (date)=>{
+    $.get("/charts/" + date + "/day").
+      success((trades) => {
+        $.each(trades, (index, trade)=>{
+          console.log(trade);
+          draw_chart_min(trade);
+        })
+      })
+  }
+  draw_chart_min = (trade)=>{
+  }
+  draw_chart = (date)=>{
+    get_day(date)
+  }
+
+  $(()=>{
+    draw_chart('#{DateTime.now.to_date}')
   })
