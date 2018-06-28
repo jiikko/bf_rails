@@ -13,23 +13,53 @@ table
       = @min_price
 javascript:
   sample_draw_chart = ()=>{
-    var canvas = document.getElementById('chart')
+    canvas = document.getElementById('chart')
+    csWidth  = canvas.width,
+    csHeight = canvas.height,
     ctx = canvas.getContext('2d')
-    ctx.lineTo(10, 50)
-    ctx.lineTo(20, 5)
-    ctx.stroke()
+    ctx.beginPath();
+    ctx.moveTo(10, 50);
+    ctx.lineTo(20, 5);
+    ctx.closePath();
+    ctx.stroke();
   }
+  canvas_context = ()=>{
+    return(document.getElementById('chart').getContext('2d'));
+  }
+
   get_day = (date)=>{
     $.get("/charts/" + date + "/day").
       success((trades) => {
+        var prev_trade = undefined;
         $.each(trades, (index, trade)=>{
-          console.log(trade);
-          draw_chart_min(trade);
+          if(prev_trade === undefined){
+            prev_trade = trade;
+            return true;
+          }
+          // console.log(trade);
+          draw_one_line(prev_trade, trade);
         })
       })
   }
-  draw_chart_min = (trade)=>{
+  draw_one_line = (from_trade, to_trade)=>{
+    x = convert_to_x_point(from_trade.time);
+    y = convert_to_y_point(from_trade.min_price);
+    canvas_context().beginPath();
+    canvas_context().moveTo(x, y);
+    x = convert_to_x_point(to_trade.time);
+    y = convert_to_y_point(to_trade.min_price);
+    canvas_context().lineTo(x, y);
+    canvas_context().closePath();
+    canvas_context().stroke();
   }
+
+  convert_to_x_point = (time)=>{
+    return 1;
+  }
+  convert_to_y_point = (price)=>{
+    return 20;
+  }
+
   draw_chart = (date)=>{
     get_day(date)
   }
