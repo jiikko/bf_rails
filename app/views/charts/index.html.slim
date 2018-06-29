@@ -2,15 +2,14 @@ h1 Charts
 
 table
   tr
-    td style='vertical-align: top'
-      = @max_price
+    td style='vertical-align: top' data-role='max_price'
     td rowspan=3
       canvas id="chart" width="500" height="500"
   tr
     td
   tr
-    td style='vertical-align: bottom'
-      = @min_price
+    td style='vertical-align: bottom' data-role='min_price'
+
 javascript:
   sample_draw_chart = ()=>{
     canvas = document.getElementById('chart')
@@ -29,9 +28,13 @@ javascript:
 
   get_day = (date)=>{
     $.get("/charts/" + date + "/day").
-      success((trades) => {
+      success((response) => {
         var prev_trade = undefined;
-        $.each(trades, (index, trade)=>{
+        console.log(response.min_price)
+        $('[data-role=min_price]').html(response.min_price);
+        $('[data-role=max_price]').html(response.max_price);
+
+        $.each(response.trades, (index, trade)=>{
           if(prev_trade === undefined){
             prev_trade = trade;
             return true;
