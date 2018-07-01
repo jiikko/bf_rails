@@ -4,7 +4,10 @@ class Admin::MyTradesController < ApplicationController
   end
 
   def destroy_all
-    BF::MyTradeShip.where(id: params[:cheched_my_trade_ship_id]).delete_all
+    BF::MyTradeShip.where(id: params[:cheched_my_trade_ship_id]).each do |ship|
+      ship.sell_trade.canceled!
+      ship.buy_trade.canceled!
+    end
     redirect_to admin_my_trades_path, notice: '削除しました'
   end
 end
