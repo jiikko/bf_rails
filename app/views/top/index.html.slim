@@ -17,7 +17,9 @@ div#my_trade_table
 
 javascript:
   $(function() {
-    $.get('/prices.js');
+    $.get('/prices.js').success(function(){
+      build_trade_link();
+    })
     $.get('/my_trades.js');
     $.get('/worker_statuses.js');
     $.get('/api/disparities.js');
@@ -31,15 +33,6 @@ javascript:
     setInterval(function(){ $.get('/api/disparities.js'); }, 2000);
     setInterval(function(){ build_trade_link() }, 5000);
   });
-
-  $(document).on('click', '#worker_button', function() {
-    if($('#workers table').size() >= 1) {
-      $('#workers').children().remove();
-    } else {
-      $.get('/resque/workers.js');
-    }
-    return false;
-  })
 
   function build_trade_link() {
     $('[data-role="buy_1"]').toggle('fast')
@@ -57,9 +50,16 @@ javascript:
     $('[data-role="buy_5"]').toggle('fast')
   }
 
-  $(function() {
-    $(document).on('click', '[data-option-column=show]', function() {
-      $('[data-option-column=profit]').toggle();
-      return false;
-    })
+  $(document).on('click', '[data-option-column=show]', function() {
+    $('[data-option-column=profit]').toggle();
+    return false;
+  })
+
+  $(document).on('click', '#worker_button', function() {
+    if($('#workers table').size() >= 1) {
+      $('#workers').children().remove();
+    } else {
+      $.get('/resque/workers.js');
+    }
+    return false;
   })
