@@ -1,5 +1,6 @@
 class ChartsController < ApplicationController
   def index
+    @current_day = params[:day] || DateTime.now.to_date.to_s
   end
 
   def day
@@ -13,7 +14,7 @@ class ChartsController < ApplicationController
              'max(price) max_price',
              'min(price) min_price').
       group("time")
-    trades = trades.to_a.map { |t| t.time = t.time + 9.hour; t }
+    trades = trades.to_a.map { |t| t.time = (t.time + 9.hour).strftime('%H%M%S').to_i; t }
     render json: { trades: trades, min_price: min_price, max_price: max_price }
   end
 end

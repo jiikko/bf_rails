@@ -1,4 +1,8 @@
 h1 Charts
+p
+  = link_to '前日', charts_path(day: (@current_day.to_date - 1.day).to_s)
+p
+  = link_to '翌日', charts_path(day: (@current_day.to_date + 1.day).to_s)
 
 table
   tr
@@ -30,7 +34,6 @@ javascript:
     $.get("/charts/" + date + "/day").
       success((response) => {
         var prev_trade = undefined;
-        console.log(response.min_price)
         $('[data-role=min_price]').html(response.min_price);
         $('[data-role=max_price]').html(response.max_price);
 
@@ -39,8 +42,8 @@ javascript:
             prev_trade = trade;
             return true;
           }
-          // console.log(trade);
           draw_one_line(prev_trade, trade);
+          prev_trade = trade;
         })
       })
   }
@@ -57,7 +60,7 @@ javascript:
   }
 
   convert_to_x_point = (time)=>{
-    return 1;
+    return time / 500;
   }
   convert_to_y_point = (price)=>{
     min = parseInt($('[data-role=min_price]').html())
@@ -72,5 +75,5 @@ javascript:
   }
 
   $(()=>{
-    draw_chart('#{DateTime.now.to_date}')
+    draw_chart('#{@current_day}')
   })
