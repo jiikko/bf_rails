@@ -16,17 +16,8 @@ table
 
 javascript:
   canvasObj = document.getElementById('chart');
-  resolution = 20;
 
-  sample_draw_chart = ()=>{
-    ctx = canvasObj.getContext('2d')
-    ctx.beginPath();
-    ctx.moveTo(10, 50);
-    ctx.lineTo(20, 5);
-    ctx.closePath();
-    ctx.stroke();
-  }
-  canvas_context = ()=>{
+  canvasContext = ()=>{
     return(document.getElementById('chart').getContext('2d'));
   }
 
@@ -50,17 +41,17 @@ javascript:
   draw_one_line = (from_trade, to_trade)=>{
     x = convert_to_x_point(from_trade.time);
     y = convert_to_y_point(from_trade.min_price);
-    canvas_context().beginPath();
-    canvas_context().moveTo(x, y);
+    canvasContext().beginPath();
+    canvasContext().moveTo(x, y);
     x = convert_to_x_point(to_trade.time);
     y = convert_to_y_point(to_trade.min_price);
-    canvas_context().lineTo(x, y);
-    canvas_context().closePath();
-    canvas_context().stroke();
+    canvasContext().lineTo(x, y);
+    canvasContext().closePath();
+    canvasContext().stroke();
   }
 
   convert_to_x_point = (time)=>{
-    return time / 500;
+    return time / canvasObj.width;
   }
   convert_to_y_point = (price)=>{
     min = parseInt($('[data-role=min_price]').html())
