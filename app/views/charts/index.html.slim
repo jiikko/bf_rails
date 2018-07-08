@@ -1,8 +1,9 @@
-h1 Charts
-p
-  = link_to '前日', charts_path(day: (@current_day.to_date - 1.day).to_s)
-p
-  = link_to '翌日', charts_path(day: (@current_day.to_date + 1.day).to_s)
+h1 Charts(#{@current_day.to_date})
+p = link_to '前日', charts_path(day: (@current_day.to_date - 1.day).to_s)
+p = link_to '翌日', charts_path(day: (@current_day.to_date + 1.day).to_s)
+
+- if @current_day.to_date != Date.today
+  p = link_to '今日', charts_path(day: Date.today.to_s)
 
 table
   tr
