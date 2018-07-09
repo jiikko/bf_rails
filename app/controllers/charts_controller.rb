@@ -34,7 +34,7 @@ class ChartsController < ApplicationController
   end
 
   def auto_succeed_my_trades
-    ships = BF::MyTradeShip.
+    ships = BF::MyTradeShip.succeed.
       includes(:scalping_task, :sell_trade, :buy_trade).
       where(created_at: current_day.all_day)
     ships.map do |ship|
