@@ -42,5 +42,5 @@ class ChartsController < ApplicationController
         end: (ship.buy_trade.updated_at + 9.hour).strftime('%H%M%S').to_i,
       }
     end
-l end
+  end
 end

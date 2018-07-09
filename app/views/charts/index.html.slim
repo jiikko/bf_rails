@@ -29,6 +29,20 @@ javascript:
         $('[data-role=min_price]').html(response.min_price);
         $('[data-role=max_price]').html(response.max_price);
 
+        canvasContext().strokeStyle = 'red';
+        $.each(response.auto_succeed_my_trades, (index, start_and_end)=>{
+          start_x = convert_to_x_point(start_and_end.start);
+          canvasContext().beginPath();
+          canvasContext().moveTo(start_x, 0);
+
+          end_x = convert_to_x_point(start_and_end.end);
+          canvasContext().lineTo(end_x, 500);
+
+          canvasContext().closePath();
+          canvasContext().stroke();
+        })
+
+        canvasContext().strokeStyle = 'black';
         $.each(response.trades, (index, trade)=>{
           if(prev_trade === undefined){
             prev_trade = trade;
