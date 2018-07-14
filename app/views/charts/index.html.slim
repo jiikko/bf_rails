@@ -29,17 +29,23 @@ javascript:
         $('[data-role=min_price]').html(response.min_price);
         $('[data-role=max_price]').html(response.max_price);
 
-        canvasContext().strokeStyle = 'red';
+        var buy_x, sell_x;
         $.each(response.auto_succeed_my_trades, (index, start_and_end)=>{
-          start_x = convert_to_x_point(start_and_end.start);
+          buy_x = convert_to_x_point(start_and_end.start);
+          canvasContext().strokeStyle = 'blue';
           canvasContext().beginPath();
-          canvasContext().moveTo(start_x, 0);
-
-          end_x = convert_to_x_point(start_and_end.end);
-          canvasContext().lineTo(end_x, 500);
-
-          canvasContext().closePath();
+          canvasContext().moveTo(buy_x, 0);
+          canvasContext().lineTo(buy_x, 500);
           canvasContext().stroke();
+          canvasContext().closePath();
+
+          sell_x = convert_to_x_point(start_and_end.end);
+          canvasContext().strokeStyle = 'red';
+          canvasContext().beginPath();
+          canvasContext().moveTo(sell_x, 0);
+          canvasContext().lineTo(sell_x, 500);
+          canvasContext().stroke();
+          canvasContext().closePath();
         })
 
         canvasContext().strokeStyle = 'black';
