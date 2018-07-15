@@ -9,7 +9,7 @@ table
   tr
     td style='vertical-align: top' data-role='max_price'
     td rowspan=3
-      canvas id="chart" width="500" height="500"
+      canvas id="chart" width="3000" height="500"
   tr
     td
   tr
@@ -72,7 +72,7 @@ javascript:
   }
 
   convert_to_x_point = (time)=>{
-    return time / canvasObj.width;
+    return time / 300;
   }
   convert_to_y_point = (price)=>{
     min = parseInt($('[data-role=min_price]').html())
