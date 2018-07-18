@@ -48,24 +48,3 @@ table border=1
     td
       = manual.map(&:sum_profit).sum + automation.map(&:sum_profit).sum
       | 円
-
-h1 assessment automation
-table border=1
-  tr
-    th 日付
-    th 発注-買い約定(max)
-    th 発注-買い約定(min)
-    th 発注-買い約定(avg)
-    th 買い約定-売り約定までの時間(max)
-    th 買い約定-売り約定までの時間(min)
-    th 買い約定-売り約定までの時間(avg)
-  - [].each do |date, tasks|
-    tr
-      - list = tasks.find_all { |x| !!x.scalping_task }
-      /td = date
-      /td = distance_of_time_in_words(list.map(&:duration_from_buy_trade_to_succeed).max)
-      /td = distance_of_time_in_words(list.map(&:duration_from_buy_trade_to_succeed).min)
-      /td = distance_of_time_in_words(list.map(&:duration_from_buy_trade_to_succeed).sum / list.size)
-      /td = distance_of_time_in_words(list.map(&:duration_from_sell_trade_to_succeed).max)
-      /td = distance_of_time_in_words(list.map(&:duration_from_sell_trade_to_succeed).min)
-      /td = distance_of_time_in_words(list.map(&:duration_from_sell_trade_to_succeed).sum / list.size)
