@@ -1,4 +1,3 @@
-p
 table border=1
   thead
     tr
@@ -23,7 +22,6 @@ div
 javascript:
   $('head title').html("#{number_with_delimiter(@last_trade.price)}");
 
-p
 table border=1
   thead
     tr
@@ -41,8 +39,7 @@ table border=1
         td
           div style='background-color:red; height:10px; width:#{calc_rate(min_diff, max_diff)}px'
 
-
-p = BF::Trade.price_directions(@price_table).join(' ')
+div = BF::Trade.price_directions(@price_table).join(' ')
 div
   | 最終取得日時:
   = @last_trade.created_at.localtime.strftime("%Y年%m月%d日 %H時%M分%S秒")
