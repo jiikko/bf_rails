@@ -16,7 +16,7 @@ table border=1
 div = link_to '自動発注', api_run_one_scalping_path, method: :post, remote: true
 div = link_to '繰り返し自動発注', api_run_endless_scalping_path, method: :post, remote: true
 
-p
+div
   | 最終取引価格:
   = number_with_delimiter(@last_trade.price)
 
@@ -43,10 +43,10 @@ table border=1
 
 
 p = BF::Trade.price_directions(@price_table).join(' ')
-p
+div
   | 最終取得日時:
   = @last_trade.created_at.localtime.strftime("%Y年%m月%d日 %H時%M分%S秒")
-p
+div
   - status = BF::Monitor.new.current_status_from_datastore
   = health_meter(status)
   | BF負荷: #{status['health'].truncate(20)}
