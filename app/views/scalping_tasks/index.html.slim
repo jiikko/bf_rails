@@ -3,5 +3,7 @@ h1 ScalpingTask
 
 javascript:
   $(function() {
-    setInterval(function(){ $.get('/scalping_tasks.js'); }, 5000);
+    setInterval(function(){
+      $.ajax('/scalping_tasks.js', { type: 'GET', timeout: 1000 });
+    } , 5000);
   });
