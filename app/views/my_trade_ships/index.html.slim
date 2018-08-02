@@ -1,0 +1,5 @@
+h1 MyTrades
+
+= paginate @my_trade_ships
+= render('my_trades/table', my_trade_ships: @my_trade_ships)
+= paginate @my_trade_ships

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       put :cancel
     end
   end
+  resources :my_trade_ships, only: %i(index)
   namespace :admin do
     resources :my_trades, only: %i(index) do
       delete :destroy_all, on: :collection

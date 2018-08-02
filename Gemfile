@@ -19,6 +19,7 @@ gem 'foreman'
 gem 'slim-rails'
 gem 'jquery-rails'
 gem 'pry'
+gem 'kaminari'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

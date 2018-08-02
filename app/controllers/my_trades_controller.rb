@@ -1,5 +1,5 @@
 class MyTradesController < ApplicationController
-  before_action :set_my_trade_ships
+  before_action :set_my_trade_ships, only: %i(index create)
 
   def index
     respond_to do |format|
