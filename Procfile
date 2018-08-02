@@ -11,5 +11,3 @@ resque: env TERM_CHILD=1 QUEUE=normal bundle exec rake resque:work
 resque: env TERM_CHILD=1 QUEUE=normal bundle exec rake resque:work
 resque: env TERM_CHILD=1 QUEUE=normal bundle exec rake resque:work
 resque: env TERM_CHILD=1 QUEUE=normal bundle exec rake resque:work
-resque: env TERM_CHILD=1 QUEUE=normal bundle exec rake resque:work
-resque: env TERM_CHILD=1 QUEUE=normal bundle exec rake resque:work
