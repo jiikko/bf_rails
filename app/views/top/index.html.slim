@@ -20,7 +20,7 @@ javascript:
     $.ajax('/prices.js', { type: 'GET', timeout: 1000 }).success(function(){
       build_trade_link();
     })
-    $.ajax('/my_trades.js', { type: 'GET', timeout: 500 });
+    $.ajax('/my_trade_ships.js', { type: 'GET', timeout: 500 });
     $.ajax('/worker_statuses.js', { type: 'GET', timeout: 1000 });
     #{"$.ajax('/api/disparities.js', { type: 'GET', timeout: 1000 });".html_safe if BF::Setting.record.enabled_calc_disparity}
     setInterval(function(){
@@ -28,7 +28,7 @@ javascript:
         success(function(data, textStatus, jqXHR) { $('body').css('background-color', 'white') }).
         fail(function(jqXHR, textStatus, errorThrown) { $('body').css('background-color', 'yellow') });
     }, 1000);
-    setInterval(function(){ $.ajax('/my_trades.js', { type: 'GET', timeout: 1000 }); }, 10000);
+    setInterval(function(){ $.ajax('/my_trade_ships.js', { type: 'GET', timeout: 1000 }); }, 10000);
     setInterval(function(){ $.ajax('/worker_statuses.js', { type: 'GET', timeout: 1000 }); }, 5000);
     #{"setInterval(function(){ $.ajax('/api/disparities.js', { type: 'GET', timeout: 1000 }); }, 2000);".html_safe if BF::Setting.record.enabled_calc_disparity}
     setInterval(function(){ build_trade_link() }, 5000);

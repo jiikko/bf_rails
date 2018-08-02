@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     get :day, on: :member
   end
   resources :prices, only: %i(index)
-  resources :my_trades, only: %i(index create) do
+  resources :my_trades, only: %i(create) do
     member do
       put :cancel
     end
