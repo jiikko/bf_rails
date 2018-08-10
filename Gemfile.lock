@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/jiikko/bf.git
-  revision: 7c8861168b797fe05aeab87142a0b8c80125026b
+  revision: ce8f52c0c141b2c21cb3b5aab38df244d3dd4b91
   branch: master
   specs:
     bf (0.1.0)
@@ -73,7 +73,7 @@ GEM
       raabro (~> 1.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
-    i18n (1.0.1)
+    i18n (1.1.0)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
