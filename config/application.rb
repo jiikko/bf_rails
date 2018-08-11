@@ -18,6 +18,8 @@ Bundler.require(*Rails.groups)
 
 module BfRails
   class Application < Rails::Application
+    Rails.application.config.time_zone = 'Tokyo'
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
