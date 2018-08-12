@@ -38,8 +38,8 @@ class ChartsController < ApplicationController
       includes(:scalping_task, :sell_trade, :buy_trade).
       where(created_at: current_day.all_day)
     ships.map do |ship|
-      { start: (ship.buy_trade.created_at + 9.hour).strftime('%H%M%S').to_i,
-        end: (ship.sell_trade.updated_at + 9.hour).strftime('%H%M%S').to_i,
+      { start: (ship.buy_trade.created_at + 0.hour).strftime('%H%M%S').to_i,
+        end: (ship.sell_trade.updated_at + 0.hour).strftime('%H%M%S').to_i,
       }
     end
   end
