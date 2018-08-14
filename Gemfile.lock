@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/jiikko/bf.git
-  revision: b184a64817dbd3de73d144514669f94ca729eb71
+  revision: 95a7068f2e2e3e4e4a448527d275a4dbd6806939
   branch: master
   specs:
     bf (0.1.0)
@@ -151,7 +151,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    redis (4.0.1)
+    redis (4.0.2)
     redis-namespace (1.6.0)
       redis (>= 3.0.4)
     resque (1.27.4)

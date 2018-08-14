@@ -1,1 +1,9 @@
+<% case %>
+<% when (@working_count / @worker_count.to_f) > 0.7 %>
+  $('#worker_statuses').css('background-color', 'red')
+<% when (@working_count / @worker_count.to_f) > 0.6 %>
+  $('#worker_statuses').css('background-color', 'yellow')
+<% else %>
+  $('#worker_statuses').css('background-color', 'white')
+<% end %>
 $('#worker_statuses').html("<%= j render 'statuses' %>")
