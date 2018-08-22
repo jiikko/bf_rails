@@ -25,7 +25,7 @@ table border=1
     tr class=css_class_of_trade_ship_status(my_trade_ship)
       td = my_trade_ship.id
       td
-        - if my_trade_ship.buy_trade.requested?
+        - if my_trade_ship.buy_trade.requested? || my_trade_ship.buy_trade.parted_trading?
           = link_to my_trade_ship.buy_trade.status, cancel_my_trade_path(my_trade_ship.buy_trade), data: { confirm: 'キャンセルしますが本当にいいですか？', remote: true }, method: :put
         - else
           = my_trade_ship.buy_trade.status.truncate(15)
