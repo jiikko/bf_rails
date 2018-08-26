@@ -1,13 +1,19 @@
+css:
+  [data-option-column=profit] { display: none; }
+
 - unless defined?(show_checkbox)
-  - show_checkbox = nil
+  - show_checkbox = false
+- if defined?(show_profit)
+  - profit_object = MyTradeShipProfitObject.new(self, show_profit: show_profit)
+- else
+  - profit_object = MyTradeShipProfitObject.new(self, show_profit: false)
 
 table border=1
   tr
     th
     th colspan=2 買い
     th colspan=2 売り
-    th colspan=2
-      a href='#' data-option-column='show' display profit
+    = profit_object.table_first_header
     th data-option-column='profit'
     - if show_checkbox
       th
@@ -19,7 +25,7 @@ table border=1
     th ステータス
     th 金額
     th 作成日
-    th data-option-column='profit'
+    = profit_object.table_middle_header
     th ソース
   - my_trade_ships.each do |my_trade_ship|
     tr class=css_class_of_trade_ship_status(my_trade_ship)
@@ -40,7 +46,8 @@ table border=1
             = my_trade_ship.sell_trade.status.truncate(15)
       td = my_trade_ship.sell_trade && my_trade_ship.sell_trade.price
       td = distance_of_time_in_words_to_now(my_trade_ship.updated_at).truncate(13)
-      td data-option-column='profit' = my_trade_ship.profit
+      = profit_object.table_body do
+        = my_trade_ship.profit
       td
         - if my_trade_ship.sell_trade.nil?
           | -
@@ -49,6 +56,3 @@ table border=1
       - if show_checkbox
         td
           = check_box_tag 'cheched_my_trade_ship_id[]', my_trade_ship.id
-
-css:
-  [data-option-column=profit] { display: none; }
