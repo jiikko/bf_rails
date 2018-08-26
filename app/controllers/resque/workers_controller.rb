@@ -1,6 +1,6 @@
 class Resque::WorkersController < ApplicationController
   def index
-    @workers = Resque.workers.select { |x| x.job.present? }
+    @workers = Resque.workers.select { |worker| worker.job.present? }.sort_by { |worker| worker.job['payload'].values }
     respond_to do |format|
       format.html
       format.js
