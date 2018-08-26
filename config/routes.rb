@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resource :disparities, only: :show
     post 'run_one_scalping' => 'scalpings#create', as: :run_one_scalping
     post 'run_endless_scalping' => 'daemon_scalpings#create', as: :run_endless_scalping
+    post 'run_remove_waiting_trading' => 'remove_waiting_trades#create', as: :run_remove_waiting_trading
   end
   namespace :resque do
     resources :workers, only: %i(index destroy)

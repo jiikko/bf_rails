@@ -14,6 +14,7 @@ table border=1
         td = max - min
 div = link_to '自動発注', api_run_one_scalping_path, method: :post, remote: true
 div = link_to '繰り返し自動発注', api_run_endless_scalping_path, method: :post, remote: true
+div = link_to '約定確認', api_run_remove_waiting_trading_path, method: :post, remote: true
 
 div
   | 最終取引価格:
