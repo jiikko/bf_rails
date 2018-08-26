@@ -5,7 +5,7 @@ module BF
       ActionCable.server.broadcast(
         ApplicationCable::Channel::STREAM_NAME,
         type: 'my_trades_table',
-        html: ApplicationController.renderer.render(partial: 'my_trades/table', locals: { my_trade_ships: my_trade_ships }),
+        html: ApplicationController.renderer.render(partial: 'my_trade_ships/table', locals: { my_trade_ships: my_trade_ships }),
       )
     end
 
