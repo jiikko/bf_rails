@@ -47,7 +47,7 @@ table border=1
       td = my_trade_ship.sell_trade && my_trade_ship.sell_trade.price
       td = distance_of_time_in_words_to_now(my_trade_ship.updated_at).truncate(13)
       = profit_object.table_body do
-        = my_trade_ship.profit
+        = number_to_currency(my_trade_ship.profit)
       td
         - if my_trade_ship.sell_trade.nil?
           | -

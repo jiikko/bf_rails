@@ -16,7 +16,7 @@ class MyTradeShipProfitObject
 
   def table_middle_header
     if @show_profit
-      view_context.content_tag('th')
+      view_context.content_tag('th') { '利益' }
     else
       view_context.content_tag('th', data: { 'option-column': 'profit' }) {  }
     end
