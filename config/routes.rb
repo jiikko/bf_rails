@@ -23,7 +23,8 @@ Rails.application.routes.draw do
     post 'run_remove_waiting_trading' => 'remove_waiting_trades#create', as: :run_remove_waiting_trading
   end
   namespace :resque do
-    resources :workers, only: %i(index destroy)
+    resources :workers, only: %i(index)
+    resources :jobs, only: %i(destroy), param: :pid
   end
   resources :scalping_tasks, only: %i(index)
   resource :setting, only: %i(edit update)

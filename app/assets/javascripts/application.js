@@ -13,3 +13,7 @@
 //= require rails-ujs
 //= require jquery
 //= require_tree .
+
+function hide_workers_table(){
+  $('#workers').children().remove();
+}

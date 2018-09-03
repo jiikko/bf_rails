@@ -2,6 +2,7 @@ table border=1
   tr
     th job name
     th pid
+    th
   tr
     - @workers.each do |worker|
       tr
@@ -10,3 +11,4 @@ table border=1
             = value.respond_to?(:values) ? value.values.flatten : value.inspect
             br
         td = worker.pid
+        td = link_to '停止する', resque_job_path(worker.pid), method: :delete, remote: true

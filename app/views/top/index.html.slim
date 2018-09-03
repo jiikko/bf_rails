@@ -57,7 +57,7 @@ javascript:
 
   $(document).on('click', '#worker_button', function() {
     if($('#workers table').size() >= 1) {
-      $('#workers').children().remove();
+      hide_workers_table();
     } else {
       $.ajax('/resque/workers.js', { type: 'GET', timeout: 1000 });
     }
