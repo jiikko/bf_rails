@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/jiikko/bf.git
-  revision: 57c420d9d244c5df256099fec86cce9171ae2f2a
+  revision: 8bf23a864f6a9ec9b52804688590c3b134b9271a
   branch: master
   specs:
     bf (0.1.0)
@@ -165,7 +165,7 @@ GEM
       redis (>= 3.3, < 5)
       resque (~> 1.26)
       rufus-scheduler (~> 3.2)
-    retryable (3.0.1)
+    retryable (3.0.2)
     ruby_dep (1.5.0)
     rufus-scheduler (3.5.0)
       fugit (~> 1.1, >= 1.1.1)
