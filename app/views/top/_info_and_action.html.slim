@@ -29,10 +29,10 @@ table border=1 style='text-align: center;'
 
 table.mt20 border=1
   tr
-    td = link_to '自動発注', api_run_one_scalping_path, method: :post, remote: true
-    td = link_to '繰り返し自動発注', api_run_endless_scalping_path, method: :post, remote: true
-    td = link_to '約定確認', api_run_remove_waiting_trading_path(s: 2), method: :post, remote: true
+    td = button_to '自動発注', api_run_one_scalping_path, method: :post, remote: true
+    td = button_to '繰り返し自動発注', api_run_endless_scalping_path, method: :post, remote: true
+    td = button_to '約定確認', api_run_remove_waiting_trading_path(s: 2), method: :post, remote: true
   tr
-    td = link_to 'ロット数を0.01にする', setting_path(bf_setting: { order_size: '0.01' }, from: root_url), method: :patch
-    td = link_to 'ロット数を0.1にする', setting_path(bf_setting: { order_size: '0.1' }, from: root_url), method: :patch
-    td = link_to 'ロット数を0.2にする', setting_path(bf_setting: { order_size: '0.2' }, from: root_url), method: :patch
+    td = button_to 'ロット数を0.01にする', setting_path(bf_setting: { order_size: '0.01' }, from: root_url), method: :patch
+    td = button_to 'ロット数を0.1にする', setting_path(bf_setting: { order_size: '0.1' }, from: root_url), method: :patch
+    td = button_to 'ロット数を0.2にする', setting_path(bf_setting: { order_size: '0.2' }, from: root_url), method: :patch
