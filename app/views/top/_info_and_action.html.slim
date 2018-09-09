@@ -27,11 +27,15 @@ table border=1 style='text-align: center;'
     td = BF::Setting.record.order_size
     td = BF::Setting.record.order_range
 
-table.mt20 border=1
+table.mt20 border=1 style='text-align: center;'
+  tr
+    th colspan=3 ジョブ
   tr
     td = button_to '自動発注', api_run_one_scalping_path, method: :post, remote: true
     td = button_to '繰り返し自動発注', api_run_endless_scalping_path, method: :post, remote: true
     td = button_to '約定確認', api_run_remove_waiting_trading_path(s: 2), method: :post, remote: true
+  tr
+    th colspan=3 設定変更
   tr
     td = button_to 'ロット数を0.01にする', setting_path(bf_setting: { order_size: '0.01' }, from: root_url), method: :patch
     td = button_to 'ロット数を0.1にする', setting_path(bf_setting: { order_size: '0.1' }, from: root_url), method: :patch
