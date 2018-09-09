@@ -19,7 +19,6 @@ function hide_workers_table(){
 }
 
 function build_trade_link() {
-  console.log('called build_trade_link')
   $('[data-role="buy_1"]').toggle('fast')
   var  min_price = parseInt($('[data-name=min_1_price]').text());
   $('[data-role="buy_1"]').children().remove()
