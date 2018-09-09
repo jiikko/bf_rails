@@ -1,0 +1,38 @@
+div style='height:50px'
+  span data-role='buy_1'
+  br
+  span data-role='buy_5'
+
+table border=1
+  tr
+    th 最終取引価格
+    th チャートの形
+  tr
+    td
+      h3#last_trade_price
+    td#price_directions
+  tr
+    th BF負荷
+    /th 取引所ステータス
+    th BFサーバステータス
+  tr
+    td
+      div#health_meter style='margin-left: auto; marign-right: auto;'
+    /td#status_health_message
+    td#bf_status
+  tr
+    th ロット数
+    th 利益値幅
+  tr
+    td = BF::Setting.record.order_size
+    td = BF::Setting.record.order_range
+
+table.mt20 border=1
+  tr
+    td = link_to '自動発注', api_run_one_scalping_path, method: :post, remote: true
+    td = link_to '繰り返し自動発注', api_run_endless_scalping_path, method: :post, remote: true
+    td = link_to '約定確認', api_run_remove_waiting_trading_path(s: 2), method: :post, remote: true
+  tr
+    td = link_to 'ロット数を0.01にする', ''
+    td = link_to 'ロット数を0.1にする', ''
+    td = link_to 'ロット数を0.2にする', ''

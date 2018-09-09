@@ -1,15 +1,17 @@
-p style='height:30px'
-  span data-role='buy_1'
-  br
-  span data-role='buy_5'
+div style='text-align: right; width: 1000px'
+  | 最終取得日時
+  b#last_trade_at
 
-div#trade_table
-div#price_table
+.table.mt20
+  .table-cell.left#price_table
+  .table-cell.right#right_column
+    = render 'info_and_action'
+
 div#disparity
 table
   tr
     td
-      div#worker_statuses
+      #worker_statuses
     td
       #worker_button = link_to 'show jobs', '#'
       #workers
@@ -28,38 +30,13 @@ javascript:
         success(function(data, textStatus, jqXHR) { $('body').css('background-color', 'white') }).
         fail(function(jqXHR, textStatus, errorThrown) { $('body').css('background-color', 'yellow') });
     }, 1000);
-    setInterval(function(){ $.ajax('/my_trade_ships.js', { type: 'GET', timeout: 1000 }); }, 10000);
-    setInterval(function(){ $.ajax('/worker_statuses.js', { type: 'GET', timeout: 1000 }); }, 5000);
+    setInterval(function(){
+      $.ajax('/my_trade_ships.js', { type: 'GET', timeout: 1000 });
+    }, 10000);
+    setInterval(function(){
+      $.ajax('/worker_statuses.js', { type: 'GET', timeout: 1000 });
+      build_trade_link()
+    }, 5000);
+
     #{"setInterval(function(){ $.ajax('/api/disparities.js', { type: 'GET', timeout: 1000 }); }, 2000);".html_safe if BF::Setting.record.enabled_calc_disparity}
-    setInterval(function(){ build_trade_link() }, 5000);
   });
-
-  function build_trade_link() {
-    $('[data-role="buy_1"]').toggle('fast')
-    var  min_price = parseInt($('[data-name=min_1_price]').text());
-    $('[data-role="buy_1"]').children().remove()
-    var a_tag = `<a data-method='post' data-remote=true data-method="post" href='/my_trades?price=${min_price}'>${min_price}</a>`
-    $("[data-role='buy_1']").append($(a_tag));
-    $('[data-role="buy_1"]').toggle('fast')
-
-    $('[data-role="buy_5"]').toggle('slow')
-    var min_price = parseInt($('[data-name=min_5_price]').text());
-    $('[data-role="buy_5"]').children().remove()
-    var a_tag = `<a data-method='post' data-remote=true data-method="post" href='/my_trades?price=${min_price}'>${min_price}</a>`
-    $("[data-role='buy_5']").append($(a_tag));
-    $('[data-role="buy_5"]').toggle('fast')
-  }
-
-  $(document).on('click', '[data-option-column=show]', function() {
-    $('[data-option-column=profit]').toggle();
-    return false;
-  })
-
-  $(document).on('click', '#worker_button', function() {
-    if($('#workers table').size() >= 1) {
-      hide_workers_table();
-    } else {
-      $.ajax('/resque/workers.js', { type: 'GET', timeout: 1000 });
-    }
-    return false;
-  })

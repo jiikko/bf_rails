@@ -12,16 +12,7 @@ table border=1
         td data-name="min_#{range}_price" = min
         td data-name="max_#{range}_price" = max
         td = max - min
-div = link_to '自動発注', api_run_one_scalping_path, method: :post, remote: true
-div = link_to '繰り返し自動発注', api_run_endless_scalping_path, method: :post, remote: true
-div = link_to '約定確認', api_run_remove_waiting_trading_path, method: :post, remote: true
-
-div
-  | 最終取引価格:
-  = number_with_delimiter(@last_trade.price)
-
-javascript:
-  $('head title').html("#{number_with_delimiter(@last_trade.price)}");
+p
 
 table border=1
   thead
@@ -39,14 +30,3 @@ table border=1
         td = max_diff
         td
           div style='background-color:red; height:10px; width:#{calc_rate(min_diff, max_diff)}px'
-
-div = BF::Trade.price_directions(@price_table).join(' ')
-div
-  | 最終取得日時:
-  = @last_trade.created_at.localtime.strftime("%Y年%m月%d日 %H時%M分%S秒")
-div
-  - status = BF::Monitor.new.current_status_from_datastore
-  = health_meter(status)
-  | BF負荷: #{status['health'].truncate(20)}
-  br
-  | BFステータス: #{status['state']}
