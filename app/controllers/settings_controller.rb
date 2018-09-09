@@ -6,7 +6,7 @@ class SettingsController < ApplicationController
   def update
     @setting = BF::Setting.record
     if @setting.update(setting_params)
-      redirect_to edit_setting_path, notice: '更新しました'
+      redirect
     else
       render :edit
     end
@@ -16,5 +16,13 @@ class SettingsController < ApplicationController
 
   def setting_params
     params.require(:bf_setting).permit!
+  end
+
+  def redirect
+    if params[:from]
+      redirect_to params[:from], notice: '更新しました'
+    else
+      redirect_to edit_setting_path, notice: '更新しました'
+    end
   end
 end
