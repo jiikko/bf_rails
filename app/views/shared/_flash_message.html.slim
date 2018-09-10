@@ -1,0 +1,3 @@
+div data-dialog=true
+  - if flash[:notice].present?
+    = render 'shared/dialog', body: flash[:notice]

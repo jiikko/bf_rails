@@ -1,0 +1,7 @@
+.dialog
+  .body
+    .close_button
+      = link_to 'x', '#', data: { role: 'close-dialog' }
+    = body
+javascript:
+  setTimeout("remove_dialog()", 3000);
