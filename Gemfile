@@ -12,6 +12,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jbuilder', '~> 2.5'
 gem 'resque'
+gem 'coffee-script'
 gem 'resque-scheduler'
 gem 'bf', github: 'jiikko/bf', branch: :master
 gem 'foreman'
@@ -26,4 +27,8 @@ end
 
 group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
+end
+
+group :test do
+  gem 'resque_spec'
 end
