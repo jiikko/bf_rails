@@ -24,7 +24,9 @@ Rails.application.routes.draw do
   end
   namespace :resque do
     resources :workers, only: %i(index)
-    resources :jobs, only: %i(destroy), param: :pid
+    resources :jobs, only: %i(destroy), param: :pid do
+      delete :destroy_all, on: :collection
+    end
   end
   resources :scalping_tasks, only: %i(index)
   resource :setting, only: %i(edit update)

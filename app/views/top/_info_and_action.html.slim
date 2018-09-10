@@ -35,6 +35,10 @@ table.mt20 border=1 style='text-align: center;'
     td = button_to '繰り返し自動発注', api_run_endless_scalping_path, method: :post, remote: true, class: 'button job'
     td = button_to '約定確認', api_run_remove_waiting_trading_path(s: 2), method: :post, remote: true, class: 'button job'
   tr
+    td = button_to '非同期ジョブの全停止', destroy_all_resque_jobs_path, method: :delete, remote: true, class: 'button job'
+    td
+    td
+  tr
     th colspan=3 設定変更
   tr
     td = button_to 'ロット数を0.01にする', setting_path(bf_setting: { order_size: '0.01' }, from: root_url), method: :patch, class: 'button update'
