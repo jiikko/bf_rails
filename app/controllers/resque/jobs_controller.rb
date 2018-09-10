@@ -13,7 +13,7 @@ class Resque::JobsController < ApplicationController
     pids.each { |pid| Process.kill(:USR1, pid) }
     @message = '非同期ジョブの全停止を実行しました'
     respond_to do |format|
-      format.js
+      format.js { render 'shared/dialog' }
     end
   end
 end
