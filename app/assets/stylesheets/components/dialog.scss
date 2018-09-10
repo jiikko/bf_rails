@@ -1,0 +1,18 @@
+.dialog {
+  position: relative;
+  .close_button {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+  }
+  .body {
+    position: absolute;
+    background-color: white;
+    border-style: solid;
+    width: 300px;
+    top: 0px;
+    left: 0px;
+    margin: 10px;
+    padding: 10px;
+  }
+}
