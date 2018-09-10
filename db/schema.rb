@@ -28,9 +28,9 @@ ActiveRecord::Schema.define(version: 20180609030601) do
     t.string "order_id"
     t.string "order_acceptance_id"
     t.text "error_trace"
+    t.text "params"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "params"
   end
 
   create_table "scalping_tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -45,11 +45,12 @@ ActiveRecord::Schema.define(version: 20180609030601) do
   create_table "settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean "enabled_fetch", default: true, null: false
     t.boolean "enabled_daemon_sclping_worker", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.integer "max_scalping_worker_count", default: 1, null: false
     t.float "order_size", limit: 24, default: 0.01, null: false
     t.integer "order_range", default: 400, null: false
+    t.boolean "enabled_calc_disparity", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "summarized_my_trades", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
