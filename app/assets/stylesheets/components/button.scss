@@ -1,0 +1,16 @@
+.button {
+  width: 130px;
+  max-width: 150px;
+  padding: 10px;
+  border-radius: 10px;
+  margin:5px;
+
+  &.job {
+    background-color: #FFECCC;
+    color: #000;
+  }
+  &.update {
+    background-color: #E5F6FF;
+    color: #000;
+  }
+}
