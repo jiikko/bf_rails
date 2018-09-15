@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(version: 20180609030601) do
     t.integer "kind", null: false
     t.integer "status", null: false
     t.integer "price", null: false
-    t.float "size", limit: 24, null: false
+    t.decimal "size", precision: 10, scale: 8, null: false
     t.string "order_id"
     t.string "order_acceptance_id"
     t.text "error_trace"
-    t.text "params"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "params"
   end
 
   create_table "scalping_tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -45,12 +45,12 @@ ActiveRecord::Schema.define(version: 20180609030601) do
   create_table "settings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.boolean "enabled_fetch", default: true, null: false
     t.boolean "enabled_daemon_sclping_worker", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer "max_scalping_worker_count", default: 1, null: false
     t.float "order_size", limit: 24, default: 0.01, null: false
     t.integer "order_range", default: 400, null: false
     t.boolean "enabled_calc_disparity", default: false, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "summarized_my_trades", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -65,10 +65,9 @@ ActiveRecord::Schema.define(version: 20180609030601) do
 
   create_table "trades", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "price", null: false
-    t.integer "kind", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["created_at"], name: "index_trades_on_created_at"
+    t.index ["created_at", "price"], name: "index_trades_on_created_at_and_price"
   end
 
 end

@@ -1,7 +1,7 @@
 --- !ruby/object:ActiveRecord::ConnectionAdapters::SchemaCache
 columns:
   ar_internal_metadata:
-  - &49 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &48 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: key
     table_name: ar_internal_metadata
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -18,7 +18,7 @@ columns:
     default_function: 
     collation: utf8_general_ci
     comment: 
-  - &50 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &49 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: value
     table_name: ar_internal_metadata
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -35,7 +35,7 @@ columns:
     default_function: 
     collation: utf8_general_ci
     comment: 
-  - &51 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &50 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: created_at
     table_name: ar_internal_metadata
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -52,7 +52,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &52 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &51 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: updated_at
     table_name: ar_internal_metadata
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -70,7 +70,7 @@ columns:
     collation: 
     comment: 
   my_trade_ships:
-  - &53 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &52 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: id
     table_name: my_trade_ships
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -87,7 +87,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &54 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &53 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: buy_trade_id
     table_name: my_trade_ships
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -104,7 +104,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &55 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &54 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: sell_trade_id
     table_name: my_trade_ships
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -121,7 +121,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &56 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &55 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: created_at
     table_name: my_trade_ships
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -138,7 +138,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &57 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &56 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: updated_at
     table_name: my_trade_ships
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -156,7 +156,7 @@ columns:
     collation: 
     comment: 
   my_trades:
-  - &58 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &57 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: id
     table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -173,7 +173,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &59 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &58 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: kind
     table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -190,7 +190,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &60 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &59 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: status
     table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -207,7 +207,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &61 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &60 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: price
     table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -224,16 +224,16 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &62 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &61 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: size
     table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &14 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: float
-        type: :float
-        limit: 24
-        precision: 
-        scale: 
+        sql_type: decimal(10,8)
+        type: :decimal
+        limit: 
+        precision: 10
+        scale: 8
       type_metadata: *14
       extra: ''
     'null': false
@@ -241,7 +241,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &63 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &62 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: order_id
     table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -258,7 +258,7 @@ columns:
     default_function: 
     collation: utf8_general_ci
     comment: 
-  - &64 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &63 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: order_acceptance_id
     table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -275,7 +275,7 @@ columns:
     default_function: 
     collation: utf8_general_ci
     comment: 
-  - &65 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &64 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: error_trace
     table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -292,7 +292,7 @@ columns:
     default_function: 
     collation: utf8_general_ci
     comment: 
-  - &66 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &65 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: created_at
     table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -309,7 +309,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &67 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &66 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: updated_at
     table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -326,7 +326,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &68 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &67 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: params
     table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -344,7 +344,7 @@ columns:
     collation: utf8_general_ci
     comment: 
   scalping_tasks:
-  - &69 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &68 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: id
     table_name: scalping_tasks
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -361,7 +361,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &70 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &69 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: trade_ship_id
     table_name: scalping_tasks
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -378,7 +378,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &71 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &70 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: buy_succeed_at
     table_name: scalping_tasks
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -395,7 +395,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &72 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &71 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: sell_succeed_at
     table_name: scalping_tasks
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -412,7 +412,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &73 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &72 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: created_at
     table_name: scalping_tasks
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -429,7 +429,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &74 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &73 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: updated_at
     table_name: scalping_tasks
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -447,7 +447,7 @@ columns:
     collation: 
     comment: 
   schema_migrations:
-  - &75 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &74 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: version
     table_name: schema_migrations
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -465,7 +465,7 @@ columns:
     collation: utf8_general_ci
     comment: 
   settings:
-  - &76 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &75 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: id
     table_name: settings
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -482,7 +482,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &77 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &76 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: enabled_fetch
     table_name: settings
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -499,7 +499,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &78 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &77 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: enabled_daemon_sclping_worker
     table_name: settings
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -516,7 +516,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &79 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &78 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: created_at
     table_name: settings
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -533,7 +533,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &80 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &79 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: updated_at
     table_name: settings
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -550,7 +550,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &81 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &80 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: max_scalping_worker_count
     table_name: settings
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -567,7 +567,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &82 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &81 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: order_size
     table_name: settings
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -584,7 +584,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &83 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &82 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: order_range
     table_name: settings
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -601,7 +601,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &84 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &83 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: enabled_calc_disparity
     table_name: settings
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -619,7 +619,7 @@ columns:
     collation: 
     comment: 
   summarized_my_trades:
-  - &85 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &84 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: id
     table_name: summarized_my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -636,7 +636,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &86 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &85 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: count
     table_name: summarized_my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -653,7 +653,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &87 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &86 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: profit
     table_name: summarized_my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -670,7 +670,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &88 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &87 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: kind
     table_name: summarized_my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -687,7 +687,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &89 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &88 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: summarized_on
     table_name: summarized_my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -704,7 +704,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &90 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &89 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: created_at
     table_name: summarized_my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -721,7 +721,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &91 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &90 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: updated_at
     table_name: summarized_my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -739,7 +739,7 @@ columns:
     collation: 
     comment: 
   trades:
-  - &92 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &91 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: id
     table_name: trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -756,7 +756,7 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &93 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &92 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: price
     table_name: trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
@@ -773,15 +773,15 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &94 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: kind
+  - &93 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: created_at
     table_name: trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &46 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: int(11)
-        type: :integer
-        limit: 4
-        precision: 
+        sql_type: datetime
+        type: :datetime
+        limit: 
+        precision: 0
         scale: 
       type_metadata: *46
       extra: ''
@@ -790,8 +790,8 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &95 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: created_at
+  - &94 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: updated_at
     table_name: trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &47 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
@@ -807,80 +807,62 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &96 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: updated_at
-    table_name: trades
-    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &48 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: datetime
-        type: :datetime
-        limit: 
-        precision: 0
-        scale: 
-      type_metadata: *48
-      extra: ''
-    'null': false
-    default: 
-    default_function: 
-    collation: 
-    comment: 
 columns_hash:
   ar_internal_metadata:
-    key: *49
-    value: *50
-    created_at: *51
-    updated_at: *52
+    key: *48
+    value: *49
+    created_at: *50
+    updated_at: *51
   my_trade_ships:
-    id: *53
-    buy_trade_id: *54
-    sell_trade_id: *55
-    created_at: *56
-    updated_at: *57
+    id: *52
+    buy_trade_id: *53
+    sell_trade_id: *54
+    created_at: *55
+    updated_at: *56
   my_trades:
-    id: *58
-    kind: *59
-    status: *60
-    price: *61
-    size: *62
-    order_id: *63
-    order_acceptance_id: *64
-    error_trace: *65
-    created_at: *66
-    updated_at: *67
-    params: *68
+    id: *57
+    kind: *58
+    status: *59
+    price: *60
+    size: *61
+    order_id: *62
+    order_acceptance_id: *63
+    error_trace: *64
+    created_at: *65
+    updated_at: *66
+    params: *67
   scalping_tasks:
-    id: *69
-    trade_ship_id: *70
-    buy_succeed_at: *71
-    sell_succeed_at: *72
-    created_at: *73
-    updated_at: *74
+    id: *68
+    trade_ship_id: *69
+    buy_succeed_at: *70
+    sell_succeed_at: *71
+    created_at: *72
+    updated_at: *73
   schema_migrations:
-    version: *75
+    version: *74
   settings:
-    id: *76
-    enabled_fetch: *77
-    enabled_daemon_sclping_worker: *78
-    created_at: *79
-    updated_at: *80
-    max_scalping_worker_count: *81
-    order_size: *82
-    order_range: *83
-    enabled_calc_disparity: *84
+    id: *75
+    enabled_fetch: *76
+    enabled_daemon_sclping_worker: *77
+    created_at: *78
+    updated_at: *79
+    max_scalping_worker_count: *80
+    order_size: *81
+    order_range: *82
+    enabled_calc_disparity: *83
   summarized_my_trades:
-    id: *85
-    count: *86
-    profit: *87
-    kind: *88
-    summarized_on: *89
-    created_at: *90
-    updated_at: *91
+    id: *84
+    count: *85
+    profit: *86
+    kind: *87
+    summarized_on: *88
+    created_at: *89
+    updated_at: *90
   trades:
-    id: *92
-    price: *93
-    kind: *94
-    created_at: *95
-    updated_at: *96
+    id: *91
+    price: *92
+    created_at: *93
+    updated_at: *94
 primary_keys:
   ar_internal_metadata: key
   my_trade_ships: id
