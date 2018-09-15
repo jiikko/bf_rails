@@ -5,3 +5,13 @@ tr.closed,tr.succeed, td.succeed {
 tr.canceled {
   background-color: yellow;
 }
+
+th.span1 {
+  width: 80px;
+  overflow: hidden;
+}
+
+th.span2 {
+  width: 160px;
+  overflow: hidden;
+}
