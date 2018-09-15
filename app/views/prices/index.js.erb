@@ -1,7 +1,7 @@
 $("#price_table").html("<%= j render('prices/table', price_table: @price_table, last_trade: @last_trade) %>");
 $('head title').html("<%= j number_with_delimiter(@last_trade.price) %>");
 $('#price_directions').html("<%= j BF::Trade.price_directions(@price_table).join(' ') %>");
-$('#last_trade_price').html("<%= j number_with_delimiter(@last_trade.price) %>円")
+$('#last_trade_price').html("<%= j number_with_delimiter(@last_trade.price) %>円");
 $('#last_trade_at').html("<%= j @last_trade.created_at.localtime.strftime('%Y年%m月%d日 %H時%M分%S秒') %>");
 
 <% status = BF::Monitor.new.current_status_from_datastore %>
