@@ -3,10 +3,12 @@ class Api::DaemonScalpingsController < ApplicationController
     respond_to do |format|
       format.js do 
         if BF::DaemonScalpingWorker.doing?
-          return
+          @message = 'BF::DaemonScalpingWorkerが実行中のため何もしませんでした'
+          render 'shared/dialog'
         else
           BF::DaemonScalpingWorker.perform_async
-          head :ok
+          @message = 'BF::DaemonScalpingWorkerを実行します'
+          render 'shared/dialog'
         end
       end
     end
