@@ -15,7 +15,6 @@ Rails.application.routes.draw do
       delete :destroy_all, on: :collection
     end
   end
-  resources :worker_statuses, only: %i(index)
   namespace :api do
     resource :disparities, only: :show
     post 'run_one_scalping' => 'scalpings#create', as: :run_one_scalping
@@ -24,6 +23,7 @@ Rails.application.routes.draw do
   end
   namespace :resque do
     resources :workers, only: %i(index)
+    resources :worker_statuses, only: %i(index)
     resources :jobs, only: %i(destroy), param: :pid do
       delete :destroy_all, on: :collection
     end

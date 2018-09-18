@@ -1,4 +1,4 @@
-class WorkerStatusesController < ApplicationController
+class Resque::WorkerStatusesController < ApplicationController
   def index
     @worker_statuses = Resque.
       workers.
