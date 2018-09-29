@@ -48,6 +48,3 @@ workers ENV.fetch("WEB_CONCURRENCY") { 2 }
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
-
-state_path "tmp/puma/state"
-activate_control_app 'tcp://127.0.0.1:9293'
