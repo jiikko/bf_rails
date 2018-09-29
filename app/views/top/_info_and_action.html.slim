@@ -26,6 +26,13 @@ table border=1 style='text-align: center;'
   tr
     td = BF::Setting.record.order_size
     td = BF::Setting.record.order_range
+  tr
+    th 保有枚数
+    th
+  tr
+    td = BF::MyTradeShip.running.includes(:buy_trade).map { |x| x.buy_trade.size }.sum.to_f
+    td
+
 
 table.mt20 border=1 style='text-align: center;'
   tr
