@@ -11,17 +11,18 @@ css:
 table border=1
   tr
     th
-    th colspan=2 買い
-    th colspan=2 売り
+    th colspan=3 買い
+    th colspan=3 売り
     = profit_object.table_first_header
     th data-option-column='profit'
     - if show_checkbox
       th
-
   tr
-    th id
+    th ship id
+    th.span1 buy id
     th.span1 ステータス
     th 金額
+    th.span1 sell id
     th.span1 ステータス
     th 金額
     th.span1 作成日
@@ -30,12 +31,14 @@ table border=1
   - my_trade_ships.each do |my_trade_ship|
     tr class=css_class_of_trade_ship_status(my_trade_ship)
       td = my_trade_ship.id
+      td = my_trade_ship.buy_trade_id
       td
         - if my_trade_ship.buy_trade.requested? || my_trade_ship.buy_trade.parted_trading?
           = link_to my_trade_ship.buy_trade.status, cancel_my_trade_path(my_trade_ship.buy_trade), data: { confirm: 'キャンセルしますが本当にいいですか？', remote: true }, method: :put
         - else
           = my_trade_ship.buy_trade.status.truncate(15)
       td = number_to_currency(my_trade_ship.buy_trade.price)
+      td = my_trade_ship.sell_trade_id
       td
         - if my_trade_ship.sell_trade.nil?
           | sell_trade は未作成です
