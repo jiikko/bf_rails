@@ -18,6 +18,9 @@ class ResultsController < ApplicationController
   def recalc_if_need!
     cached_last_succeed_id = Rails.cache.fetch(CACHE_KEY) || BF::MyTradeShip.succeed.last.id
     current_last_succeed_id = BF::MyTradeShip.succeed.last.id
+    if cached_last_succeed_id.nil?
+      Rails.cache.write(CACHE_KEY, current_last_succeed_id)
+    end
     unless cached_last_succeed_id == current_last_succeed_id
       BF::SummarizedMyTrade.summarize!
       Rails.cache.write(CACHE_KEY, current_last_succeed_id)
