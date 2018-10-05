@@ -1,5 +1,5 @@
 class ResultsController < ApplicationController
-  CACHE_KEY = 'last_succeed_id'
+  CACHE_KEY = 'last_succeed_at'
 
   def index
     recalc_if_need!
@@ -16,14 +16,14 @@ class ResultsController < ApplicationController
   end
 
   def recalc_if_need!
-    cached_last_succeed_id = Rails.cache.fetch(CACHE_KEY) || BF::MyTradeShip.succeed.last.id
-    current_last_succeed_id = BF::MyTradeShip.succeed.last.id
-    if cached_last_succeed_id.nil?
-      Rails.cache.write(CACHE_KEY, current_last_succeed_id)
+    current_last_succeed_at = BF::MyTradeShip.last_succeed_at
+    cached_last_succeed_at = Rails.cache.fetch(CACHE_KEY)
+    if cached_last_succeed_at.nil?
+      Rails.cache.write(CACHE_KEY, current_last_succeed_at)
     end
-    unless cached_last_succeed_id == current_last_succeed_id
+    unless cached_last_succeed_at == current_last_succeed_at
       BF::SummarizedMyTrade.summarize!
-      Rails.cache.write(CACHE_KEY, current_last_succeed_id)
+      Rails.cache.write(CACHE_KEY, current_last_succeed_at)
     end
   end
 end
