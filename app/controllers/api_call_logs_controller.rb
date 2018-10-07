@@ -16,21 +16,15 @@ class ApiCallLogsController < ApplicationController
 
   def set_variables_count_by_path
     api_call_log_table = BF::ApiCallLog.recent.group_by(&:api_type)
-    @public_api = (api_call_log_table["public_api"] || []).map { |x| x.request_body =~ /^(.+?)\?/ && $1 }
-    @public_api_table = {}.tap do |hash|
-      @public_api.each do |key, value|
-        hash[key] ||= 0
-        hash[key] = hash[key] + 1
-      end
-      hash
-    end
-    @private_api = (api_call_log_table["private_api"] || []).map { |x| x.request_body =~ /^(.+?)\?/ && $1 }
-    @private_api_table = {}.tap do |hash|
-      @private_api.each do |key, value|
-        hash[key] ||= 0
-        hash[key] = hash[key] + 1
-      end
-      hash
+    public_api_paths = (api_call_log_table["public_api"] || []).map { |x| x.request_body =~ /^(.+?)\?/ && $1 }
+    @public_api_table = count_by_path(public_api_paths)
+    private_api_paths = (api_call_log_table["private_api"] || []).map { |x| x.request_body =~ /^(.+?)\?/ && $1 }
+    @private_api_table = count_by_path(private_api_paths)
+  end
+
+  def count_by_path(paths)
+    Hash.new { |h,k| h[k] = 0 }.tap do |hash|
+      paths.each { |path| hash[path] = hash[path] + 1 }
     end
   end
 end
