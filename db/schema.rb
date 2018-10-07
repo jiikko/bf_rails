@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180609030601) do
+ActiveRecord::Schema.define(version: 20181007151422) do
+
+  create_table "api_call_logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "api_type", null: false
+    t.string "request_body"
+    t.string "response_body"
+    t.text "error_trace"
+    t.integer "response_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["api_type", "created_at"], name: "index_api_call_logs_on_api_type_and_created_at"
+  end
 
   create_table "my_trade_ships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "buy_trade_id", null: false
