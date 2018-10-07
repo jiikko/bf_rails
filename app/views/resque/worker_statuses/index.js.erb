@@ -1,9 +1,15 @@
 <% case %>
 <% when (@working_count / @worker_count.to_f) > 0.7 %>
-  $('#worker_statuses').css('background-color', 'red');
+  $('#worker_statuses').removeClass('default');
+  $('#worker_statuses').removeClass('warning');
+  $('#worker_statuses').addClass('danger');
 <% when (@working_count / @worker_count.to_f) > 0.6 %>
-  $('#worker_statuses').css('background-color', 'yellow');
+  $('#worker_statuses').removeClass('default');
+  $('#worker_statuses').removeClass('danger');
+  $('#worker_statuses').addClass('warning');
 <% else %>
-  $('#worker_statuses').css('background-color', defultBodyColor);
+  $('#worker_statuses').removeClass('warning');
+  $('#worker_statuses').removeClass('danger');
+  $('#worker_statuses').addClass('default');
 <% end %>
 $('#worker_statuses').html("<%= j render 'statuses' %>");
