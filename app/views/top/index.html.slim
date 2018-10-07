@@ -18,6 +18,7 @@ table
 div#my_trade_table
 
 javascript:
+  defultBodyColor = $('body').css('background-color');
   $(function() {
     $.ajax('/prices.js', { type: 'GET', timeout: 1000 }).success(function(){
       build_trade_link();
@@ -27,7 +28,7 @@ javascript:
     #{"$.ajax('/api/disparities.js', { type: 'GET', timeout: 1000 });".html_safe if BF::Setting.record.enabled_calc_disparity}
     setInterval(function(){
       $.ajax('/prices.js', { type: 'GET', timeout: 1500 }).
-        success(function(data, textStatus, jqXHR) { $('body').css('background-color', 'white') }).
+        success(function(data, textStatus, jqXHR) { $('body').css('background-color', defultBodyColor) }).
         fail(function(jqXHR, textStatus, errorThrown) { $('body').css('background-color', 'yellow') });
     }, 1000);
     setInterval(function(){

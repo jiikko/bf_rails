@@ -1,0 +1,31 @@
+body {
+  background-color: #364549;
+  color: white;
+}
+
+tr.closed, tr.succeed, td.succeed {
+  background-color: green !important;
+}
+
+tr.canceled {
+  color: black !important;
+}
+
+tr.waiting {
+  background-color: white !important;
+  color: black !important;
+
+  a { 
+    color: #1a0dab !important;
+    &:visit {
+      color: #1a0dab !important;
+    }
+  }
+}
+
+a { 
+  color: #b2e372;
+  &:visit {
+    color: #71b37e;
+  }
+}

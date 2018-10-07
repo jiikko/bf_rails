@@ -41,7 +41,7 @@ module ApplicationHelper
   def css_class_of_trade_ship_status(my_trade_ship)
     case
     when my_trade_ship.running?
-      nil
+      :waiting
     when my_trade_ship.canceled?
       :canceled
     else
