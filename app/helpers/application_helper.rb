@@ -27,6 +27,9 @@ module ApplicationHelper
     max = 4
     result = []
     halth_number = BF::Monitor.state_const_with_number[status['health']] - 1
+    if halth_number.nil?
+      return
+    end
     busy_number = max - halth_number
     halth_number.times do
       result << content_tag(:div, nil, style: 'float: left; width: 10px; height: 20px; margin-right: 5px; background-color: green;')
