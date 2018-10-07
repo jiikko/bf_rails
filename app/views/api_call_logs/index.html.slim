@@ -1,0 +1,21 @@
+h1 ApiCallLogs
+
+h2 Private recent
+table border=1
+  tr
+    th パス
+    th 回数
+  - @private_api_table.each do |path, count|
+    tr
+      td = path
+      td = count
+
+h2 Public recent
+table border=1
+  tr
+    th パス
+    th 回数
+  - @public_api_table.each do |path, count|
+    tr
+      td = path
+      td = count
