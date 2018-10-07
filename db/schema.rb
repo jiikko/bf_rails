@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20180609030601) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "params"
+    t.index ["kind", "status", "updated_at"], name: "index_my_trades_on_kind_and_status_and_updated_at"
   end
 
   create_table "scalping_tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
