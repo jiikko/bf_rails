@@ -21,9 +21,9 @@ describe ResultsController do
         expect(BF::SummarizedMyTrade.count).to eq(1)
         expect(BF::SummarizedMyTrade.last.count).to eq(1)
         now =  Time.now + 1.second
-        sell_trade = BF::MyTrade.create!(price: 100, size: 0.1, status: :succeed, kind: :sell)
+        sell_trade = BF::MyTrade.create!(price: 100, size: 0.1, status: :succeed, kind: :sell, updated_at: now)
         buy_trade  = BF::MyTrade.create!(price: 0, size: 0.1, status: :succeed, kind: :buy)
-        running_ship = BF::MyTradeShip.create!(sell_trade_id: sell_trade.id, buy_trade_id: buy_trade.id, updated_at: now)
+        running_ship = BF::MyTradeShip.create!(sell_trade_id: sell_trade.id, buy_trade_id: buy_trade.id)
         get results_path
         expect(BF::SummarizedMyTrade.count).to eq(1)
         expect(BF::SummarizedMyTrade.last.count).to eq(2)
