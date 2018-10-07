@@ -7,31 +7,51 @@ table border=1 style='text-align: center;'
   tr
     th 最終取引価格
     th チャートの形
+    th public API(上限:500回/分)
+    th private API(上限:200回/分)
   tr
     td
       h3#last_trade_price
     td#price_directions
+    td
+      span#public_api_call_logs_count
+      |/分
+    td
+      span#private_api_call_logs_count
+      |/分
   tr
     th BF負荷
     /th 取引所ステータス
     th BFサーバステータス
+    th
+    th
   tr
     td
       div#health_meter style='margin-left: auto; marign-right: auto;'
     /td#status_health_message
     td#bf_status
+    th
+    th
   tr
     th ロット数
     th 利益値幅
+    th
+    th
   tr
     td = BF::Setting.record.order_size
     td = BF::Setting.record.order_range
+    th
+    th
   tr
     th 保有枚数
+    th
+    th
     th
   tr
     td = BF::MyTradeShip.running.includes(:buy_trade).map { |x| x.buy_trade.size }.sum.to_f
     td
+    th
+    th
 
 
 table.mt20 border=1 style='text-align: center;'

@@ -33,4 +33,5 @@ Rails.application.routes.draw do
   resources :results, only: :index do
     post :recalc, on: :collection
   end
+  resources :api_call_logs, only: :index
 end
