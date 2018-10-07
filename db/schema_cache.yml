@@ -1,95 +1,94 @@
 --- !ruby/object:ActiveRecord::ConnectionAdapters::SchemaCache
 columns:
-  ar_internal_metadata:
-  - &48 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: key
-    table_name: ar_internal_metadata
+  api_call_logs:
+  - &56 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: id
+    table_name: api_call_logs
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &1 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: varchar(255)
-        type: :string
-        limit: 255
-        precision: 
-        scale: 
-      type_metadata: *1
-      extra: ''
-    'null': false
-    default: 
-    default_function: 
-    collation: utf8_general_ci
-    comment: 
-  - &49 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: value
-    table_name: ar_internal_metadata
-    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &2 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: varchar(255)
-        type: :string
-        limit: 255
-        precision: 
-        scale: 
-      type_metadata: *2
-      extra: ''
-    'null': true
-    default: 
-    default_function: 
-    collation: utf8_general_ci
-    comment: 
-  - &50 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: created_at
-    table_name: ar_internal_metadata
-    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &3 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: datetime
-        type: :datetime
-        limit: 
-        precision: 0
-        scale: 
-      type_metadata: *3
-      extra: ''
-    'null': false
-    default: 
-    default_function: 
-    collation: 
-    comment: 
-  - &51 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: updated_at
-    table_name: ar_internal_metadata
-    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &4 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: datetime
-        type: :datetime
-        limit: 
-        precision: 0
-        scale: 
-      type_metadata: *4
-      extra: ''
-    'null': false
-    default: 
-    default_function: 
-    collation: 
-    comment: 
-  my_trade_ships:
-  - &52 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: id
-    table_name: my_trade_ships
-    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &5 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
         sql_type: bigint(20)
         type: :integer
         limit: 8
         precision: 
         scale: 
-      type_metadata: *5
+      type_metadata: *1
       extra: auto_increment
     'null': false
     default: 
     default_function: 
     collation: 
     comment: 
-  - &53 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: buy_trade_id
-    table_name: my_trade_ships
+  - &57 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: api_type
+    table_name: api_call_logs
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &2 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: int(11)
+        type: :integer
+        limit: 4
+        precision: 
+        scale: 
+      type_metadata: *2
+      extra: ''
+    'null': false
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - &58 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: request_body
+    table_name: api_call_logs
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &3 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: varchar(255)
+        type: :string
+        limit: 255
+        precision: 
+        scale: 
+      type_metadata: *3
+      extra: ''
+    'null': true
+    default: 
+    default_function: 
+    collation: utf8_general_ci
+    comment: 
+  - &59 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: response_body
+    table_name: api_call_logs
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &4 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: varchar(255)
+        type: :string
+        limit: 255
+        precision: 
+        scale: 
+      type_metadata: *4
+      extra: ''
+    'null': true
+    default: 
+    default_function: 
+    collation: utf8_general_ci
+    comment: 
+  - &60 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: error_trace
+    table_name: api_call_logs
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &5 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: text
+        type: :text
+        limit: 65535
+        precision: 
+        scale: 
+      type_metadata: *5
+      extra: ''
+    'null': true
+    default: 
+    default_function: 
+    collation: utf8_general_ci
+    comment: 
+  - &61 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: response_code
+    table_name: api_call_logs
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &6 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
         sql_type: int(11)
@@ -99,31 +98,31 @@ columns:
         scale: 
       type_metadata: *6
       extra: ''
-    'null': false
-    default: 
-    default_function: 
-    collation: 
-    comment: 
-  - &54 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: sell_trade_id
-    table_name: my_trade_ships
-    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &7 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: int(11)
-        type: :integer
-        limit: 4
-        precision: 
-        scale: 
-      type_metadata: *7
-      extra: ''
     'null': true
     default: 
     default_function: 
     collation: 
     comment: 
-  - &55 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &62 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: created_at
-    table_name: my_trade_ships
+    table_name: api_call_logs
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &7 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: datetime
+        type: :datetime
+        limit: 
+        precision: 0
+        scale: 
+      type_metadata: *7
+      extra: ''
+    'null': false
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - &63 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: updated_at
+    table_name: api_call_logs
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &8 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
         sql_type: datetime
@@ -138,50 +137,50 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &56 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: updated_at
-    table_name: my_trade_ships
+  ar_internal_metadata:
+  - &64 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: key
+    table_name: ar_internal_metadata
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &9 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: datetime
-        type: :datetime
-        limit: 
-        precision: 0
+        sql_type: varchar(255)
+        type: :string
+        limit: 255
+        precision: 
         scale: 
       type_metadata: *9
       extra: ''
     'null': false
     default: 
     default_function: 
-    collation: 
+    collation: utf8_general_ci
     comment: 
-  my_trades:
-  - &57 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: id
-    table_name: my_trades
+  - &65 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: value
+    table_name: ar_internal_metadata
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &10 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: bigint(20)
-        type: :integer
-        limit: 8
+        sql_type: varchar(255)
+        type: :string
+        limit: 255
         precision: 
         scale: 
       type_metadata: *10
-      extra: auto_increment
-    'null': false
+      extra: ''
+    'null': true
     default: 
     default_function: 
-    collation: 
+    collation: utf8_general_ci
     comment: 
-  - &58 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: kind
-    table_name: my_trades
+  - &66 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: created_at
+    table_name: ar_internal_metadata
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &11 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: int(11)
-        type: :integer
-        limit: 4
-        precision: 
+        sql_type: datetime
+        type: :datetime
+        limit: 
+        precision: 0
         scale: 
       type_metadata: *11
       extra: ''
@@ -190,15 +189,15 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &59 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: status
-    table_name: my_trades
+  - &67 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: updated_at
+    table_name: ar_internal_metadata
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &12 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: int(11)
-        type: :integer
-        limit: 4
-        precision: 
+        sql_type: datetime
+        type: :datetime
+        limit: 
+        precision: 0
         scale: 
       type_metadata: *12
       extra: ''
@@ -207,33 +206,34 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &60 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: price
-    table_name: my_trades
+  my_trade_ships:
+  - &68 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: id
+    table_name: my_trade_ships
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &13 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: int(11)
+        sql_type: bigint(20)
         type: :integer
-        limit: 4
+        limit: 8
         precision: 
         scale: 
       type_metadata: *13
-      extra: ''
+      extra: auto_increment
     'null': false
     default: 
     default_function: 
     collation: 
     comment: 
-  - &61 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: size
-    table_name: my_trades
+  - &69 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: buy_trade_id
+    table_name: my_trade_ships
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &14 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: decimal(10,8)
-        type: :decimal
-        limit: 
-        precision: 10
-        scale: 8
+        sql_type: int(11)
+        type: :integer
+        limit: 4
+        precision: 
+        scale: 
       type_metadata: *14
       extra: ''
     'null': false
@@ -241,14 +241,14 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &62 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: order_id
-    table_name: my_trades
+  - &70 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: sell_trade_id
+    table_name: my_trade_ships
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &15 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: varchar(255)
-        type: :string
-        limit: 255
+        sql_type: int(11)
+        type: :integer
+        limit: 4
         precision: 
         scale: 
       type_metadata: *15
@@ -256,68 +256,69 @@ columns:
     'null': true
     default: 
     default_function: 
-    collation: utf8_general_ci
+    collation: 
     comment: 
-  - &63 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: order_acceptance_id
-    table_name: my_trades
+  - &71 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: created_at
+    table_name: my_trade_ships
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &16 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: varchar(255)
-        type: :string
-        limit: 255
-        precision: 
-        scale: 
-      type_metadata: *16
-      extra: ''
-    'null': true
-    default: 
-    default_function: 
-    collation: utf8_general_ci
-    comment: 
-  - &64 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: error_trace
-    table_name: my_trades
-    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &17 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: text
-        type: :text
-        limit: 65535
-        precision: 
-        scale: 
-      type_metadata: *17
-      extra: ''
-    'null': true
-    default: 
-    default_function: 
-    collation: utf8_general_ci
-    comment: 
-  - &65 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: created_at
-    table_name: my_trades
-    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &18 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
         sql_type: datetime
         type: :datetime
         limit: 
         precision: 0
         scale: 
-      type_metadata: *18
+      type_metadata: *16
       extra: ''
     'null': false
     default: 
     default_function: 
     collation: 
     comment: 
-  - &66 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &72 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: updated_at
-    table_name: my_trades
+    table_name: my_trade_ships
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &19 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+      delegate_dc_obj: &17 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
         sql_type: datetime
         type: :datetime
         limit: 
         precision: 0
+        scale: 
+      type_metadata: *17
+      extra: ''
+    'null': false
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  my_trades:
+  - &73 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: id
+    table_name: my_trades
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &18 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: bigint(20)
+        type: :integer
+        limit: 8
+        precision: 
+        scale: 
+      type_metadata: *18
+      extra: auto_increment
+    'null': false
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - &74 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: kind
+    table_name: my_trades
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &19 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: int(11)
+        type: :integer
+        limit: 4
+        precision: 
         scale: 
       type_metadata: *19
       extra: ''
@@ -326,112 +327,111 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &67 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: params
+  - &75 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: status
     table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &20 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: text
-        type: :text
-        limit: 65535
-        precision: 
-        scale: 
-      type_metadata: *20
-      extra: ''
-    'null': true
-    default: 
-    default_function: 
-    collation: utf8_general_ci
-    comment: 
-  scalping_tasks:
-  - &68 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: id
-    table_name: scalping_tasks
-    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &21 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: bigint(20)
-        type: :integer
-        limit: 8
-        precision: 
-        scale: 
-      type_metadata: *21
-      extra: auto_increment
-    'null': false
-    default: 
-    default_function: 
-    collation: 
-    comment: 
-  - &69 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: trade_ship_id
-    table_name: scalping_tasks
-    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &22 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
         sql_type: int(11)
         type: :integer
         limit: 4
         precision: 
         scale: 
-      type_metadata: *22
+      type_metadata: *20
       extra: ''
-    'null': true
+    'null': false
     default: 
     default_function: 
     collation: 
     comment: 
-  - &70 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: buy_succeed_at
-    table_name: scalping_tasks
+  - &76 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: price
+    table_name: my_trades
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &21 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: int(11)
+        type: :integer
+        limit: 4
+        precision: 
+        scale: 
+      type_metadata: *21
+      extra: ''
+    'null': false
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - &77 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: size
+    table_name: my_trades
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &22 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: decimal(10,8)
+        type: :decimal
+        limit: 
+        precision: 10
+        scale: 8
+      type_metadata: *22
+      extra: ''
+    'null': false
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - &78 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: order_id
+    table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &23 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: datetime
-        type: :datetime
-        limit: 
-        precision: 0
+        sql_type: varchar(255)
+        type: :string
+        limit: 255
+        precision: 
         scale: 
       type_metadata: *23
       extra: ''
     'null': true
     default: 
     default_function: 
-    collation: 
+    collation: utf8_general_ci
     comment: 
-  - &71 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: sell_succeed_at
-    table_name: scalping_tasks
+  - &79 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: order_acceptance_id
+    table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &24 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: datetime
-        type: :datetime
-        limit: 
-        precision: 0
+        sql_type: varchar(255)
+        type: :string
+        limit: 255
+        precision: 
         scale: 
       type_metadata: *24
       extra: ''
     'null': true
     default: 
     default_function: 
-    collation: 
+    collation: utf8_general_ci
     comment: 
-  - &72 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: created_at
-    table_name: scalping_tasks
+  - &80 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: error_trace
+    table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &25 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: datetime
-        type: :datetime
-        limit: 
-        precision: 0
+        sql_type: text
+        type: :text
+        limit: 65535
+        precision: 
         scale: 
       type_metadata: *25
       extra: ''
-    'null': false
+    'null': true
     default: 
     default_function: 
-    collation: 
+    collation: utf8_general_ci
     comment: 
-  - &73 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: updated_at
-    table_name: scalping_tasks
+  - &81 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: created_at
+    table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &26 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
         sql_type: datetime
@@ -446,79 +446,78 @@ columns:
     default_function: 
     collation: 
     comment: 
-  schema_migrations:
-  - &74 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: version
-    table_name: schema_migrations
+  - &82 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: updated_at
+    table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &27 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: varchar(255)
-        type: :string
-        limit: 255
-        precision: 
+        sql_type: datetime
+        type: :datetime
+        limit: 
+        precision: 0
         scale: 
       type_metadata: *27
       extra: ''
     'null': false
     default: 
     default_function: 
-    collation: utf8_general_ci
+    collation: 
     comment: 
-  settings:
-  - &75 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: id
-    table_name: settings
+  - &83 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: params
+    table_name: my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &28 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: text
+        type: :text
+        limit: 65535
+        precision: 
+        scale: 
+      type_metadata: *28
+      extra: ''
+    'null': true
+    default: 
+    default_function: 
+    collation: utf8_general_ci
+    comment: 
+  scalping_tasks:
+  - &84 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: id
+    table_name: scalping_tasks
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &29 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
         sql_type: bigint(20)
         type: :integer
         limit: 8
         precision: 
         scale: 
-      type_metadata: *28
+      type_metadata: *29
       extra: auto_increment
     'null': false
     default: 
     default_function: 
     collation: 
     comment: 
-  - &76 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: enabled_fetch
-    table_name: settings
-    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &29 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: tinyint(1)
-        type: :boolean
-        limit: 
-        precision: 
-        scale: 
-      type_metadata: *29
-      extra: ''
-    'null': false
-    default: '1'
-    default_function: 
-    collation: 
-    comment: 
-  - &77 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: enabled_daemon_sclping_worker
-    table_name: settings
+  - &85 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: trade_ship_id
+    table_name: scalping_tasks
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &30 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: tinyint(1)
-        type: :boolean
-        limit: 
+        sql_type: int(11)
+        type: :integer
+        limit: 4
         precision: 
         scale: 
       type_metadata: *30
       extra: ''
-    'null': false
-    default: '0'
+    'null': true
+    default: 
     default_function: 
     collation: 
     comment: 
-  - &78 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: created_at
-    table_name: settings
+  - &86 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: buy_succeed_at
+    table_name: scalping_tasks
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &31 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
         sql_type: datetime
@@ -528,14 +527,14 @@ columns:
         scale: 
       type_metadata: *31
       extra: ''
-    'null': false
+    'null': true
     default: 
     default_function: 
     collation: 
     comment: 
-  - &79 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: updated_at
-    table_name: settings
+  - &87 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: sell_succeed_at
+    table_name: scalping_tasks
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &32 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
         sql_type: datetime
@@ -545,105 +544,106 @@ columns:
         scale: 
       type_metadata: *32
       extra: ''
+    'null': true
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - &88 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: created_at
+    table_name: scalping_tasks
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &33 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: datetime
+        type: :datetime
+        limit: 
+        precision: 0
+        scale: 
+      type_metadata: *33
+      extra: ''
     'null': false
     default: 
     default_function: 
     collation: 
     comment: 
-  - &80 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: max_scalping_worker_count
-    table_name: settings
-    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &33 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: int(11)
-        type: :integer
-        limit: 4
-        precision: 
-        scale: 
-      type_metadata: *33
-      extra: ''
-    'null': false
-    default: '1'
-    default_function: 
-    collation: 
-    comment: 
-  - &81 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: order_size
-    table_name: settings
+  - &89 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: updated_at
+    table_name: scalping_tasks
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &34 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: float
-        type: :float
-        limit: 24
-        precision: 
+        sql_type: datetime
+        type: :datetime
+        limit: 
+        precision: 0
         scale: 
       type_metadata: *34
       extra: ''
     'null': false
-    default: '0.01'
+    default: 
     default_function: 
     collation: 
     comment: 
-  - &82 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: order_range
-    table_name: settings
+  schema_migrations:
+  - &90 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: version
+    table_name: schema_migrations
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &35 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: int(11)
-        type: :integer
-        limit: 4
+        sql_type: varchar(255)
+        type: :string
+        limit: 255
         precision: 
         scale: 
       type_metadata: *35
       extra: ''
     'null': false
-    default: '400'
+    default: 
     default_function: 
-    collation: 
+    collation: utf8_general_ci
     comment: 
-  - &83 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: enabled_calc_disparity
+  settings:
+  - &91 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: id
     table_name: settings
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &36 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: tinyint(1)
-        type: :boolean
-        limit: 
-        precision: 
-        scale: 
-      type_metadata: *36
-      extra: ''
-    'null': false
-    default: '0'
-    default_function: 
-    collation: 
-    comment: 
-  summarized_my_trades:
-  - &84 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: id
-    table_name: summarized_my_trades
-    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &37 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
         sql_type: bigint(20)
         type: :integer
         limit: 8
         precision: 
         scale: 
-      type_metadata: *37
+      type_metadata: *36
       extra: auto_increment
     'null': false
     default: 
     default_function: 
     collation: 
     comment: 
-  - &85 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: count
-    table_name: summarized_my_trades
+  - &92 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: enabled_fetch
+    table_name: settings
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &37 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: tinyint(1)
+        type: :boolean
+        limit: 
+        precision: 
+        scale: 
+      type_metadata: *37
+      extra: ''
+    'null': false
+    default: '1'
+    default_function: 
+    collation: 
+    comment: 
+  - &93 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: enabled_daemon_sclping_worker
+    table_name: settings
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &38 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: int(11)
-        type: :integer
-        limit: 4
+        sql_type: tinyint(1)
+        type: :boolean
+        limit: 
         precision: 
         scale: 
       type_metadata: *38
@@ -653,32 +653,32 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &86 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: profit
-    table_name: summarized_my_trades
+  - &94 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: created_at
+    table_name: settings
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &39 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: int(11)
-        type: :integer
-        limit: 4
-        precision: 
+        sql_type: datetime
+        type: :datetime
+        limit: 
+        precision: 0
         scale: 
       type_metadata: *39
       extra: ''
     'null': false
-    default: '0'
+    default: 
     default_function: 
     collation: 
     comment: 
-  - &87 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: kind
-    table_name: summarized_my_trades
+  - &95 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: updated_at
+    table_name: settings
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &40 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: int(11)
-        type: :integer
-        limit: 4
-        precision: 
+        sql_type: datetime
+        type: :datetime
+        limit: 
+        precision: 0
         scale: 
       type_metadata: *40
       extra: ''
@@ -687,51 +687,188 @@ columns:
     default_function: 
     collation: 
     comment: 
-  - &88 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: summarized_on
-    table_name: summarized_my_trades
+  - &96 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: max_scalping_worker_count
+    table_name: settings
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
       delegate_dc_obj: &41 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: date
-        type: :date
-        limit: 
+        sql_type: int(11)
+        type: :integer
+        limit: 4
         precision: 
         scale: 
       type_metadata: *41
       extra: ''
     'null': false
+    default: '1'
+    default_function: 
+    collation: 
+    comment: 
+  - &97 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: order_size
+    table_name: settings
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &42 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: float
+        type: :float
+        limit: 24
+        precision: 
+        scale: 
+      type_metadata: *42
+      extra: ''
+    'null': false
+    default: '0.01'
+    default_function: 
+    collation: 
+    comment: 
+  - &98 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: order_range
+    table_name: settings
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &43 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: int(11)
+        type: :integer
+        limit: 4
+        precision: 
+        scale: 
+      type_metadata: *43
+      extra: ''
+    'null': false
+    default: '400'
+    default_function: 
+    collation: 
+    comment: 
+  - &99 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: enabled_calc_disparity
+    table_name: settings
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &44 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: tinyint(1)
+        type: :boolean
+        limit: 
+        precision: 
+        scale: 
+      type_metadata: *44
+      extra: ''
+    'null': false
+    default: '0'
+    default_function: 
+    collation: 
+    comment: 
+  summarized_my_trades:
+  - &100 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: id
+    table_name: summarized_my_trades
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &45 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: bigint(20)
+        type: :integer
+        limit: 8
+        precision: 
+        scale: 
+      type_metadata: *45
+      extra: auto_increment
+    'null': false
     default: 
     default_function: 
     collation: 
     comment: 
-  - &89 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: created_at
+  - &101 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: count
     table_name: summarized_my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &42 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
-        sql_type: datetime
-        type: :datetime
-        limit: 
-        precision: 0
+      delegate_dc_obj: &46 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: int(11)
+        type: :integer
+        limit: 4
+        precision: 
         scale: 
-      type_metadata: *42
+      type_metadata: *46
+      extra: ''
+    'null': false
+    default: '0'
+    default_function: 
+    collation: 
+    comment: 
+  - &102 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: profit
+    table_name: summarized_my_trades
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &47 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: int(11)
+        type: :integer
+        limit: 4
+        precision: 
+        scale: 
+      type_metadata: *47
+      extra: ''
+    'null': false
+    default: '0'
+    default_function: 
+    collation: 
+    comment: 
+  - &103 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: kind
+    table_name: summarized_my_trades
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &48 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: int(11)
+        type: :integer
+        limit: 4
+        precision: 
+        scale: 
+      type_metadata: *48
       extra: ''
     'null': false
     default: 
     default_function: 
     collation: 
     comment: 
-  - &90 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
-    name: updated_at
+  - &104 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: summarized_on
     table_name: summarized_my_trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &43 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+      delegate_dc_obj: &49 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: date
+        type: :date
+        limit: 
+        precision: 
+        scale: 
+      type_metadata: *49
+      extra: ''
+    'null': false
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - &105 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: created_at
+    table_name: summarized_my_trades
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &50 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
         sql_type: datetime
         type: :datetime
         limit: 
         precision: 0
         scale: 
-      type_metadata: *43
+      type_metadata: *50
+      extra: ''
+    'null': false
+    default: 
+    default_function: 
+    collation: 
+    comment: 
+  - &106 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+    name: updated_at
+    table_name: summarized_my_trades
+    sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
+      delegate_dc_obj: &51 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+        sql_type: datetime
+        type: :datetime
+        limit: 
+        precision: 0
+        scale: 
+      type_metadata: *51
       extra: ''
     'null': false
     default: 
@@ -739,68 +876,68 @@ columns:
     collation: 
     comment: 
   trades:
-  - &91 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &107 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: id
     table_name: trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &44 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+      delegate_dc_obj: &52 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
         sql_type: bigint(20)
         type: :integer
         limit: 8
         precision: 
         scale: 
-      type_metadata: *44
+      type_metadata: *52
       extra: auto_increment
     'null': false
     default: 
     default_function: 
     collation: 
     comment: 
-  - &92 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &108 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: price
     table_name: trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &45 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+      delegate_dc_obj: &53 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
         sql_type: int(11)
         type: :integer
         limit: 4
         precision: 
         scale: 
-      type_metadata: *45
+      type_metadata: *53
       extra: ''
     'null': false
     default: 
     default_function: 
     collation: 
     comment: 
-  - &93 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &109 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: created_at
     table_name: trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &46 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+      delegate_dc_obj: &54 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
         sql_type: datetime
         type: :datetime
         limit: 
         precision: 0
         scale: 
-      type_metadata: *46
+      type_metadata: *54
       extra: ''
     'null': false
     default: 
     default_function: 
     collation: 
     comment: 
-  - &94 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
+  - &110 !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::Column
     name: updated_at
     table_name: trades
     sql_type_metadata: !ruby/object:ActiveRecord::ConnectionAdapters::MySQL::TypeMetadata
-      delegate_dc_obj: &47 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
+      delegate_dc_obj: &55 !ruby/object:ActiveRecord::ConnectionAdapters::SqlTypeMetadata
         sql_type: datetime
         type: :datetime
         limit: 
         precision: 0
         scale: 
-      type_metadata: *47
+      type_metadata: *55
       extra: ''
     'null': false
     default: 
@@ -808,62 +945,72 @@ columns:
     collation: 
     comment: 
 columns_hash:
+  api_call_logs:
+    id: *56
+    api_type: *57
+    request_body: *58
+    response_body: *59
+    error_trace: *60
+    response_code: *61
+    created_at: *62
+    updated_at: *63
   ar_internal_metadata:
-    key: *48
-    value: *49
-    created_at: *50
-    updated_at: *51
+    key: *64
+    value: *65
+    created_at: *66
+    updated_at: *67
   my_trade_ships:
-    id: *52
-    buy_trade_id: *53
-    sell_trade_id: *54
-    created_at: *55
-    updated_at: *56
-  my_trades:
-    id: *57
-    kind: *58
-    status: *59
-    price: *60
-    size: *61
-    order_id: *62
-    order_acceptance_id: *63
-    error_trace: *64
-    created_at: *65
-    updated_at: *66
-    params: *67
-  scalping_tasks:
     id: *68
-    trade_ship_id: *69
-    buy_succeed_at: *70
-    sell_succeed_at: *71
-    created_at: *72
-    updated_at: *73
-  schema_migrations:
-    version: *74
-  settings:
-    id: *75
-    enabled_fetch: *76
-    enabled_daemon_sclping_worker: *77
-    created_at: *78
-    updated_at: *79
-    max_scalping_worker_count: *80
-    order_size: *81
-    order_range: *82
-    enabled_calc_disparity: *83
-  summarized_my_trades:
+    buy_trade_id: *69
+    sell_trade_id: *70
+    created_at: *71
+    updated_at: *72
+  my_trades:
+    id: *73
+    kind: *74
+    status: *75
+    price: *76
+    size: *77
+    order_id: *78
+    order_acceptance_id: *79
+    error_trace: *80
+    created_at: *81
+    updated_at: *82
+    params: *83
+  scalping_tasks:
     id: *84
-    count: *85
-    profit: *86
-    kind: *87
-    summarized_on: *88
-    created_at: *89
-    updated_at: *90
-  trades:
+    trade_ship_id: *85
+    buy_succeed_at: *86
+    sell_succeed_at: *87
+    created_at: *88
+    updated_at: *89
+  schema_migrations:
+    version: *90
+  settings:
     id: *91
-    price: *92
-    created_at: *93
-    updated_at: *94
+    enabled_fetch: *92
+    enabled_daemon_sclping_worker: *93
+    created_at: *94
+    updated_at: *95
+    max_scalping_worker_count: *96
+    order_size: *97
+    order_range: *98
+    enabled_calc_disparity: *99
+  summarized_my_trades:
+    id: *100
+    count: *101
+    profit: *102
+    kind: *103
+    summarized_on: *104
+    created_at: *105
+    updated_at: *106
+  trades:
+    id: *107
+    price: *108
+    created_at: *109
+    updated_at: *110
 primary_keys:
+  api_call_logs: id
   ar_internal_metadata: key
   my_trade_ships: id
   my_trades: id
@@ -873,6 +1020,7 @@ primary_keys:
   summarized_my_trades: id
   trades: id
 data_sources:
+  api_call_logs: true
   ar_internal_metadata: true
   my_trade_ships: true
   my_trades: true
@@ -881,4 +1029,4 @@ data_sources:
   settings: true
   summarized_my_trades: true
   trades: true
-version: 20180609030601
+version: 20181007151422
