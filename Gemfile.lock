@@ -104,6 +104,7 @@ GEM
     multi_json (1.13.1)
     mustermann (1.0.3)
     mysql2 (0.4.10)
+    newrelic_rpm (5.4.0.347)
     nio4r (2.3.1)
     nokogiri (1.8.4)
       mini_portile2 (~> 2.3.0)
@@ -238,6 +239,7 @@ DEPENDENCIES
   jquery-rails
   kaminari
   mysql2 (>= 0.3.18, < 0.5)
+  newrelic_rpm
   pry
   puma (~> 3.7)
   rails (~> 5.1.6)

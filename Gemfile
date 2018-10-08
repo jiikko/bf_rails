@@ -19,6 +19,7 @@ gem 'foreman'
 gem 'slim-rails'
 gem 'jquery-rails'
 gem 'kaminari'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'rspec-rails'
