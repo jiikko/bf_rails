@@ -28,7 +28,7 @@ class PreorderSnapshotsController < ApplicationController
       return
     end
 
-    PreorderSnapshot.import_to_bf!(params[:id])
+    PreorderSnapshot.find(params[:id]).import_to_bf!
     redirect_to preorder_snapshot_path(params[:id]), notice: 'BFサーバから注文の反映に成功しました'
   end
 
