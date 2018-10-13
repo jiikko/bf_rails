@@ -34,4 +34,7 @@ Rails.application.routes.draw do
     post :recalc, on: :collection
   end
   resources :api_call_logs, only: :index
+  resources :preorder_snapshots do
+    post :import_to_bf, on: :member
+  end
 end

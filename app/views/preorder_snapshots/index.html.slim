@@ -1,0 +1,26 @@
+h1 PreorderSnapshots
+
+p = link_to '注文を取得する', new_preorder_snapshot_path
+
+= paginate @snapshots
+
+table border=1
+  tr
+    th id
+    th memo
+    th 作成日
+    th 売り数
+    th 買い数
+    th 合計数量
+    th 平均金額
+  - @snapshots.each do |snapshot|
+    tr
+      td = link_to snapshot.id, preorder_snapshot_path(snapshot)
+      td = snapshot.memo
+      td = snapshot.created_at.strftime('%Y/%m/%d')
+      td = snapshot.count_sell
+      td = snapshot.count_buy
+      td = snapshot.sum_size
+      td = snapshot.avg_price
+
+= paginate @snapshots

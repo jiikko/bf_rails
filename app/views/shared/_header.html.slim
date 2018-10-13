@@ -17,5 +17,7 @@
     = link_to :setting, edit_setting_path
   .tab class=(:active if current_page?(admin_my_trades_path))
     = link_to :admin_trades, admin_my_trades_path
+  .tab class=(:active if current_page?(preorder_snapshots_path))
+    = link_to :preorder_snapshots, preorder_snapshots_path
   .tab
     = link_to 'lightning.bitflyer.jp', 'https://lightning.bitflyer.jp', target: :_blank

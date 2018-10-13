@@ -1,0 +1,17 @@
+h1 PreorderSnapshot
+= link_to '戻る', preorder_snapshots_path
+
+p = link_to '注文を反映する(破壊的)', import_to_bf_preorder_snapshot_path(@snapshot), data: { confirm: 'BFサーバに注文を送りますが本当にいいですか？' }, method: :post
+
+table border=1
+  tr
+    th id
+    th 売り/買い
+    th 数量
+    th 金額
+  - @preorders.each do |preorder|
+    tr
+      td = preorder.id
+      td = preorder.kind
+      td = preorder.size
+      td = preorder.price
