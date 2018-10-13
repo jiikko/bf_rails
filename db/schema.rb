@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181007151422) do
+ActiveRecord::Schema.define(version: 20181013003010) do
 
   create_table "api_call_logs", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer "api_type", null: false
@@ -43,6 +43,23 @@ ActiveRecord::Schema.define(version: 20181007151422) do
     t.datetime "updated_at", null: false
     t.text "params"
     t.index ["kind", "status", "updated_at"], name: "index_my_trades_on_kind_and_status_and_updated_at"
+  end
+
+  create_table "preorder_snapshots", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.text "memo"
+    t.boolean "restored", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "preorders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "preorder_snapshot_id", null: false
+    t.integer "kind", null: false
+    t.integer "price", null: false
+    t.decimal "size", precision: 10, scale: 8, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["preorder_snapshot_id"], name: "index_preorders_on_preorder_snapshot_id"
   end
 
   create_table "scalping_tasks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
