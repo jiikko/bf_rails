@@ -24,7 +24,7 @@ class PreorderSnapshotsController < ApplicationController
 
   def import_to_bf
     unless PreorderSnapshot.order_empty?
-      redirect_to preorder_snapshot_path(params[:id]), notice: 'すでに注文が登録されているので処理を中止しました', danger: 'すでに注文が登録されているので処理を中止しました'
+      redirect_to preorder_snapshot_path(params[:id]), flash: { error: 'すでに注文が登録されているので処理を中止しました' }
       return
     end
 

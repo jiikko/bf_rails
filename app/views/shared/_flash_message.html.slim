@@ -1,3 +1,6 @@
 div data-dialog=true
-  - if flash[:notice].present?
-    = render 'shared/dialog', body: flash[:notice]
+  - case
+  - when flash[:notice].present?
+    = render 'shared/dialog', body: flash[:notice], css_class: :notice
+  - when flash[:error].present?
+    = render 'shared/dialog', body: flash[:error], css_class: :error
