@@ -1,7 +1,9 @@
 .bf-tabs {
   display: flex;
-    border-left: 1px solid black;
-    width: auto;
+  border-left: 1px solid black;
+  width: auto;
+  max-width: 1000px;
+  flex-wrap: wrap;
 
   .tab { 
     border-right: 1px solid black;
