@@ -2,20 +2,25 @@ class MyTradesController < ApplicationController
   def create
     if can_order?
       BF::MyTrade.new.run_buy_trade!(params[:price])
-      @message = '注文しました'
+      message = '注文しました'
     else
-      @message = 'workerの稼働数が最大に近いので注文しませんでした'
+      message = 'workerの稼働数が最大に近いので注文しませんでした'
     end
     respond_to do |format|
-      format.js { render 'shared/dialog' }
+      format.js do
+        set_dialog_body(message)
+        render 'shared/dialog'
+      end
     end
   end
 
   def cancel
     BF::MyTrade.find(params[:id]).cancel_order!
-    @message = '注文をキャンセルしました'
     respond_to do |format|
-      format.js { render 'shared/dialog' }
+      format.js do
+        set_dialog_body('注文をキャンセルしました')
+        render 'shared/dialog'
+      end
     end
   end
 

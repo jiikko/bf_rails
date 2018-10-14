@@ -3,7 +3,7 @@ class Api::RemoveWaitingTradesController < ApplicationController
     BF::RemoveWaitingTradeWorker.perform_async
     respond_to do |format|
       format.js do
-        @message = '約定確認を実行します'
+        set_dialog_body('約定確認を実行します')
         render 'shared/dialog'
       end
     end
