@@ -1,6 +1,6 @@
 class PreorderSnapshotsController < ApplicationController
   def index
-    @snapshots = PreorderSnapshot.summary.order(id: :desc).page(params[:page])
+    @snapshots = PreorderSnapshot.summary.order(id: :desc).page(params[:page]).select(:restored)
   end
 
   def new

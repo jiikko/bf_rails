@@ -13,6 +13,7 @@ table border=1
     th 買い数
     th 合計数量
     th 平均金額
+    th 復元済み/未
   - @snapshots.each do |snapshot|
     tr
       td = link_to snapshot.id, preorder_snapshot_path(snapshot)
@@ -22,5 +23,6 @@ table border=1
       td = snapshot.count_buy
       td = snapshot.sum_size
       td = snapshot.avg_price
+      td = snapshot.restored ? :済み : :未だ
 
 = paginate @snapshots
