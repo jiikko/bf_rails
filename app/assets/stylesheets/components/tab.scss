@@ -1,18 +1,21 @@
-.bf-tabs {
-  display: flex;
-  border-left: 1px solid black;
-  width: auto;
+.header {
   max-width: 1000px;
-  flex-wrap: wrap;
 
-  .tab { 
-    border-right: 1px solid black;
-    padding-right: 15px;
-    padding-left: 15px;
-    border-bottom: 1px solid black;
+  .bf-tabs {
+    display: flex;
+    border-left: 1px solid black;
+    width: auto;
+    flex-wrap: wrap;
 
-    &.active {
-      border-bottom: 3px solid red;
+    .tab {
+      border-right: 1px solid black;
+      padding-right: 15px;
+      padding-left: 15px;
+      border-bottom: 1px solid black;
+
+      &.active {
+        border-bottom: 3px solid red;
+      }
     }
   }
 }

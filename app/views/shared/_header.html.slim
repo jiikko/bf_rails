@@ -1,23 +1,28 @@
-.bf-tabs
-  .tab class=(:active if current_page?(root_path))
-    = link_to :trade, root_path
-  .tab class=(:active if current_page?(api_call_logs_path))
-    = link_to :api_call_logs, api_call_logs_path
-  .tab class=(:active if current_page?(my_trade_ships_path))
-    = link_to :my_trade_ships, my_trade_ships_path
-  .tab class=(:active if current_page?(resque_workers_path))
-    = link_to :workers, resque_workers_path
-  .tab class=(:active if current_page?(scalping_tasks_path))
-    = link_to :scalping_tasks, scalping_tasks_path
-  .tab class=(:active if current_page?(results_path))
-    = link_to :result, results_path
-  .tab class=(:charts if current_page?(charts_path))
-    = link_to :charts, charts_path
-  .tab class=(:active if current_page?(edit_setting_path))
-    = link_to :setting, edit_setting_path
-  .tab class=(:active if current_page?(admin_my_trades_path))
-    = link_to :admin_trades, admin_my_trades_path
-  .tab class=(:active if current_page?(preorder_snapshots_path))
-    = link_to :preorder_snapshots, preorder_snapshots_path
-  .tab
-    = link_to 'lightning.bitflyer.jp', 'https://lightning.bitflyer.jp', target: :_blank
+.header
+  .bf-tabs
+    .tab class=(:active if current_page?(root_path))
+      = link_to :trade, root_path
+    .tab class=(:active if current_page?(api_call_logs_path))
+      = link_to :api_call_logs, api_call_logs_path
+    .tab class=(:active if current_page?(my_trade_ships_path))
+      = link_to :my_trade_ships, my_trade_ships_path
+    .tab class=(:active if current_page?(resque_workers_path))
+      = link_to :workers, resque_workers_path
+    .tab class=(:active if current_page?(scalping_tasks_path))
+      = link_to :scalping_tasks, scalping_tasks_path
+    .tab class=(:active if current_page?(results_path))
+      = link_to :result, results_path
+    .tab class=(:charts if current_page?(charts_path))
+      = link_to :charts, charts_path
+    .tab class=(:active if current_page?(edit_setting_path))
+      = link_to :setting, edit_setting_path
+    .tab class=(:active if current_page?(admin_my_trades_path))
+      = link_to :admin_trades, admin_my_trades_path
+    .tab class=(:active if current_page?(preorder_snapshots_path))
+      = link_to :preorder_snapshots, preorder_snapshots_path
+    .tab
+      = link_to 'lightning.bitflyer.jp', 'https://lightning.bitflyer.jp', target: :_blank
+
+  div style='text-align: right'
+    | 最終取得日時
+    b#last_trade_at
