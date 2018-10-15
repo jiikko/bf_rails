@@ -23,6 +23,4 @@
     .tab
       = link_to 'lightning.bitflyer.jp', 'https://lightning.bitflyer.jp', target: :_blank
 
-  div style='text-align: right'
-    | 最終取得日時
-    b#last_trade_at
+  = yield :header_bottom
