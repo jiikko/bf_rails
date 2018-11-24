@@ -26,7 +26,9 @@ module ApplicationHelper
   def health_meter(status)
     max = 4
     result = []
-    halth_number = BF::Monitor.state_const_with_number[status['health']] - 1
+    status_health = BF::Monitor.state_const_with_number[status['health']]
+    return if status_health.nil?
+    halth_number = status_health - 1
     if halth_number.nil?
       return
     end
